@@ -1,0 +1,4 @@
+PORT=1234
+jwt_secret_key=secret
+CONNECTION= localhost coonection
+
