@@ -7,10 +7,10 @@ import {Signup} from "./Pages/Signup"
 function App() {
   return (
     <div >
-      {/* <Routes>
+      <Routes>
       <Route path="/login" element={<Login/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
-      </Routes> */}
+      </Routes>
   
 
     </div>
