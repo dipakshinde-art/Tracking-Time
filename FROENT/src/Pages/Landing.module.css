@@ -1,0 +1,77 @@
+.main{
+    background-color:#F6F8F9 ;
+}
+.head {
+    margin: auto;
+    width: auto;
+    height: 463px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.head>div>h1 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #00AD95;
+}
+
+.head>div>h2 {
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.head>div>h4 {
+    font-size: 70px;
+    font-weight: 700;
+    line-height:70px;
+}
+
+.head>div {
+    text-align: center;
+    width: 800px;
+}
+
+.btn {
+    margin: auto;
+    margin-top: -60px;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 15px
+}
+
+.tt_logo {
+    width: 1256px;
+    height: 354px;
+    margin: auto;
+}
+.tt_logo>img{
+    width: 100%;
+    height:100%;
+    object-fit: contain;
+    object-position: -150px
+}
+.tt_logo>div
+{
+    width:200px;
+    margin:auto;
+    display: flex;
+    gap:20px;
+    font-weight: 700;
+    text-decoration: underline;
+}
+.tt_logo>div>img
+{
+    width:24px;
+    height: 25px;
+}
+.tt_logo>div:hover
+{
+    color:#00AD95 ;
+
+}
