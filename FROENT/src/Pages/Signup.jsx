@@ -1,7 +1,28 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import styles from "./Login.module.css"
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from "./Login.module.css";
+import {auth,provider} from "../firebase"
+import { signInWithPopup } from 'firebase/auth';
+//  import { ActionTypes } from './Reducer';
+import { actionTypes } from '../Reducer';
+import { useNavigate } from 'react-router-dom';
+
+import { useStateValue } from '../StateProvider';
 export const Signup = () => {
+
+  const nav=useNavigate()
+  const[state,dispatch]=useStateValue()
+    const signIn = () =>{
+       
+      signInWithPopup(auth,provider)
+      .then((result)=>{
+        dispatch({
+          type:actionTypes.SET_USER,
+          user:result.user,
+        });
+        // console.log(result.user)
+      }).catch(error=>alert(error.message))
+        }
 
   // let handlelogout=()=>{
   //   dispatch(logoutaction())
@@ -15,7 +36,7 @@ export const Signup = () => {
           <div className={styles.prrightdiv}>
             <span style={{fontSize:"3vh"}}><span style={{fontWeight:"300"}}>TRACKING</span>TIME</span>
             <div className={styles.prbuttondiv}>
-                <button><img alt="google_logo"src="https://pro.trackingtime.co/img/login/google-logo.png"></img><span>Sign in with Google</span></button>
+                <button onClick={signIn}><img alt="google_logo"src="https://pro.trackingtime.co/img/login/google-logo.png"></img><span>Sign in with Google</span></button>
                 <button><img alt="microsoft_logo" src="https://pro.trackingtime.co/img/login/microsoft-logo.png"></img><span>Sign in with Microsoft</span></button>
                 <button><img alt="apple_logo" src="https://pro.trackingtime.co/img/login/apple-logo.png"></img><span>Sign in with Apple</span></button>
                 
