@@ -1,31 +1,42 @@
+import { Box, Grid } from "@chakra-ui/react";
 import React from "react";
+import BlogsHeadBox from "../../Components/BlogsHeadBox";
+import BlogsLayout from "../../Components/BlogsLayout";
+import BlogsNavbar from "../../Components/BlogsNavbar";
+import { resourcesData } from "../../utils/BlogsData";
 
 const Resources = () => {
-  const blogs = [
-    {
-      title: "Free Time Card Calculator",
-      image:
-        "https://trackingtime.co/wp-content/uploads/2020/09/free-time-card-calculator.svg",
-      bg: "#abb9f0",
-      link: "https://trackingtime.co/resources/free-time-card-calculator.html",
-      id: 1,
-    },
-    {
-      title: "Free PDF and Excel Timesheet Templates",
-      image: "https://trackingtime.co/wp-content/uploads/2020/10/pdf-xls-5.svg",
-      bg: "#63bae2",
-      link: "https://trackingtime.co/resources/free-timesheet-templates.html",
-      id: 2,
-    },
-    {
-      title: "Employee Timekeeper for FLSA Compliance",
-      image: "https://trackingtime.co/wp-content/uploads/2020/09/FLSA-5.svg",
-      bg: "#01c3a9",
-      link: "https://trackingtime.co/resources/employee-timekeeper-for-flsa-compliance.html",
-      id: 3,
-    },
-  ];
-  return <div>Resources</div>;
+  const headingText = "ARTICLES AND RESOURCES TO IMPROVE YOUR TIMEKEEPING";
+  return (
+    <Box top="68" position="relative">
+      <BlogsNavbar />
+      <BlogsHeadBox headingText={headingText} />
+      <Grid
+        templateColumns={{
+          base: "repeat(1, 1fr)",
+          sm: "repeat(1, 1fr)",
+          md: "repeat(3, 1fr)",
+          lg: "repeat(3, 1fr)",
+          xl: "repeat(3, 1fr)",
+          "2xl": "repeat(3, 1fr)",
+        }}
+        gap={4}
+        p={{
+          base: "1rem 1.5rem",
+          sm: "1rem 1.5rem",
+          md: "1rem 0.5rem",
+          lg: "1rem 6rem",
+          xl: "1rem 10rem",
+          "2xl": "1rem 10rem",
+        }}
+        top={70}
+        position="relative"
+        pb="15rem"
+      >
+        <BlogsLayout data={resourcesData} />
+      </Grid>
+    </Box>
+  );
 };
 
 export default Resources;

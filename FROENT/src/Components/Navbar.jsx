@@ -1,6 +1,7 @@
-import React from 'react'
-import styled from './Navbar.module.css'
-import { Button } from '@chakra-ui/react'
+import React from "react";
+import styled from "./Navbar.module.css";
+import { Button } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -9,18 +10,20 @@ const Navbar = () => {
         <div className={styled.logo_div}>
           <img
             width="190px"
-            height='19.78px'
+            height="19.78px"
             src="https://trackingtime.co/wp-content/themes/trackingtime-v4/img/layout/header/logo.svg"
             alt="Traking time"
           />
         </div>
         <div className={styled.catogories_outer}>
-          <div className={styled.caaaaa} >
+          <div className={styled.caaaaa}>
             <div>
               <h5 className={styled.cat}>INTEGRATIONS</h5>
             </div>
             <div>
-              <h5 className={styled.cat}>BLOG</h5>
+              <Link to="/blog">
+                <h5 className={styled.cat}>BLOG</h5>
+              </Link>
             </div>
             <div>
               <h5 className={styled.cat}>FEATURES</h5>
@@ -34,7 +37,8 @@ const Navbar = () => {
                 borderColor="#00AD95"
                 color="#00AD95"
                 border="2px"
-                variant='outline'>
+                variant="outline"
+              >
                 <h5 className={styled.cat}>TRY IT FREE</h5>
               </Button>
             </div>
@@ -48,7 +52,8 @@ const Navbar = () => {
                 color="white"
                 border="2px"
                 borderColor="#00AD95"
-                variant='outline'>
+                variant="outline"
+              >
                 <h5 className={styled.cat}>LOGIN</h5>
               </Button>
             </div>
@@ -56,7 +61,7 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Navbar;
