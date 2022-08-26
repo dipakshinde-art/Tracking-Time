@@ -124,6 +124,78 @@
       "task_completed": false,
       "task_details": "",
       "id": 5
+    },
+    {
+      "task_name": "were",
+      "sub_task": [
+        {
+          "subTask": "xyz",
+          "sub_task_status": false
+        }
+      ],
+      "task_completed": false,
+      "task_details": "sd",
+      "id": 6
+    },
+    {
+      "task_name": "q",
+      "sub_task": [
+        {
+          "subTask": "just do it",
+          "sub_task_status": false
+        }
+      ],
+      "task_completed": false,
+      "task_details": "",
+      "id": 7
+    },
+    {
+      "task_name": "q",
+      "sub_task": [
+        {
+          "subTask": "just do it",
+          "sub_task_status": false
+        },
+        {
+          "subTask": "dgdg",
+          "sub_task_status": false
+        }
+      ],
+      "task_completed": false,
+      "task_details": "",
+      "id": 8
+    },
+    {
+      "task_name": "q",
+      "sub_task": [
+        {
+          "subTask": "just do it",
+          "sub_task_status": false
+        },
+        {
+          "subTask": "dgdg",
+          "sub_task_status": false
+        }
+      ],
+      "task_completed": false,
+      "task_details": "",
+      "id": 9
+    },
+    {
+      "task_name": "ses",
+      "sub_task": [
+        {
+          "subTask": "just do it",
+          "sub_task_status": false
+        },
+        {
+          "subTask": "dgdg",
+          "sub_task_status": false
+        }
+      ],
+      "task_completed": false,
+      "task_details": "",
+      "id": 10
     }
   ],
   "Professional": [
@@ -195,67 +267,42 @@
   "Others": [
     {
       "id": 1,
-      "task_name": "test 1",
+      "task_name": "test 11",
       "task_details": "this is testing",
       "task_completed": false,
       "sub_task": [
         {
-          "subTask": "sub-task",
+          "subTask": "sub-task 22",
           "sub_task_status": false
         }
       ]
     },
     {
-      "task_name": "running",
+      "task_name": "IAS anaamalie",
       "sub_task": [
         {
-          "subTask": "runing 1",
+          "subTask": "never give up",
+          "sub_task_status": true
+        },
+        {
+          "subTask": "bangalore",
+          "sub_task_status": true
+        },
+        {
+          "subTask": "katmandi",
           "sub_task_status": false
         }
       ],
       "task_completed": false,
-      "task_details": "today is running day",
+      "task_details": "bank rahe gaye",
       "id": 2
     },
     {
-      "task_name": "jogging",
-      "sub_task": [
-        {
-          "subTask": "dfgd",
-          "sub_task_status": false
-        }
-      ],
-      "task_completed": true,
-      "task_details": "thif",
+      "task_name": "climbing",
+      "sub_task": [],
+      "task_completed": false,
+      "task_details": "erer",
       "id": 3
-    },
-    {
-      "task_name": "yuyuyu",
-      "sub_task": [
-        {
-          "subTask": "xfcxcx",
-          "sub_task_status": false
-        },
-        {
-          "subTask": "xfcxcx",
-          "sub_task_status": false
-        }
-      ],
-      "task_completed": false,
-      "task_details": "jijij",
-      "id": 4
-    },
-    {
-      "task_name": "keeping",
-      "sub_task": [
-        {
-          "subTask": "sdf",
-          "sub_task_status": false
-        }
-      ],
-      "task_completed": false,
-      "task_details": "",
-      "id": 5
     }
   ]
 }

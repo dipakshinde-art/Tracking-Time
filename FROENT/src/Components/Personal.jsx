@@ -90,7 +90,7 @@ const Personal = () => {
     Personal_task = Personal_task;
   }
   const dispatch = useDispatch();
-  console.log(Personal_task);
+//   console.log(Personal_task);
   useEffect(() => {
     if (Personal_task.length === 0) dispatch(personalTaskApi());
   }, [Personal_task.length]);

@@ -37,3 +37,8 @@ export const ADD_PERSONAL_TASK_ERROR = 'add_personal_task/error'
 export const ADD_OTHERS_TASK_LOADING = 'add_others_task/loading'
 export const ADD_OTHERS_TASK_SUCCESS = 'add_others_task/success'
 export const ADD_OTHERS_TASK_ERROR = 'add_others_task/error'
+
+
+export const UPDATE_OTHERS_TASK_LOADING = 'update_others_task/loading'
+export const UPDATE_OTHERS_TASK_SUCCESS = 'update_others_task/success'
+export const UPDATE_OTHERS_TASK_ERROR = 'update_others_task/error'

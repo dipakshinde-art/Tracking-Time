@@ -25,6 +25,9 @@ import {
   GET_TASK_ERROR,
   GET_TASK_LOADING,
   GET_TASK_SUCCESS,
+  UPDATE_OTHERS_TASK_ERROR,
+  UPDATE_OTHERS_TASK_LOADING,
+  UPDATE_OTHERS_TASK_SUCCESS,
 } from "./action.type";
 
 const initialState = {
@@ -238,6 +241,41 @@ export const taskReducer = (state = initialState, { type, payload }) => {
         };
       }
   
+      case UPDATE_OTHERS_TASK_LOADING: {
+        return {
+          ...state,
+          loading: true,
+          error: false,
+        };
+      }
+      case UPDATE_OTHERS_TASK_SUCCESS: {
+          let updated = state.Others_task.map((el)=>{
+              if(el.id==payload.id) {
+                  console.log(el)
+                  return payload
+                }
+                else{
+                    return el
+                }
+            })
+            // console.log(updated)
+            // if(payload.id==oth)
+        return {
+          ...state,
+          loading: false,
+          Others_task:updated,
+          error: false,
+        };
+      }
+      case UPDATE_OTHERS_TASK_ERROR: {
+        return {
+          ...state,
+          loading: false,
+          error: true,
+        };
+      }
+
+      
     default: {
       return state;
     }

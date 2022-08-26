@@ -1,39 +1,45 @@
 import { AddIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Button,
-  Checkbox,
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerHeader,
-  DrawerOverlay,
-  Flex,
-  Input,
   Text,
-  Textarea,
+  Button,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   useDisclosure,
+  Checkbox,
+  Textarea,
+  Input,
+  Flex,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { othersAddTaskApi, othersTaskApi } from "../taskreducer/action";
-import Drawerele from "./Drawerele";
-import Textname from "./Textname";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { update_others_task } from "../taskreducer/action";
+import SubtaskPart from "./SubtaskPart";
 
-const Others = () => {
-  const dispatch = useDispatch();
+const Textname = ({ data,index }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [show, Setshow] = useState(false);
   const [status, Setstatus] = useState(false);
   const [subtaskvalue, Setsubtaskvalue] = useState("");
+    const dispatch = useDispatch()
+
+ 
   const [task, Settask] = useState({
-    task_name: "",
-    sub_task: [],
-    task_completed: false,
-    task_details: "",
+    task_name: data.task_name,
+    sub_task: data.sub_task,
+    task_completed: data.task_completed,
+    task_details: data.task_details,
   });
 
+  const handleUpdate = () => {
+    console.log(data);
+    onOpen();
+  };
   const handelSub = () => {
     let { sub_task } = task;
     sub_task.push({
@@ -44,8 +50,8 @@ const Others = () => {
       ...task,
       sub_task: sub_task,
     });
-    Setsubtaskvalue("");
-    //   console.log(subtaskvalue);
+    Setsubtaskvalue("")
+    console.log(task);
   };
 
   const handleTask = (e) => {
@@ -58,12 +64,12 @@ const Others = () => {
         Setstatus(false);
         Settask({
           ...task,
-          task_completed: false,
+          task_completed: e.target.checked,
         });
       } else {
         Settask({
           ...task,
-          task_completed: true,
+          task_completed: e.target.checked,
         });
         Setstatus(true);
       }
@@ -75,65 +81,81 @@ const Others = () => {
     }
   };
 
-  const handleSubmit = () => {
-    console.log(task);
-    dispatch(othersAddTaskApi(task));
-  };
   const handleShow = () => {
-    if (show == false && task.task_name) {
+    if (show == false && data.task_name) {
       Setsubtaskvalue("");
       Setshow(true);
     } else {
       Setshow(false);
     }
   };
-  let { Others_task, filter } = useSelector((state) => state.task);
-  if (filter) {
-    Others_task = Others_task.filter((el) => el.task_completed);
-  } else {
-    Others_task = Others_task;
+  const handleSubmit = () => {
+    console.log(task);
+    console.log(index);
+      dispatch(update_others_task(task,index));
+      onClose()
+  };
+  //   console.log(data);
+
+  const SubTaskChanged =(obj,index) =>{
+   let gog =  task.sub_task.map((el,i)=>{
+    
+        if(i==index){
+            return obj
+            // console.log(el)
+        }
+        else{
+            return el
+        }
+    })
+    Settask({
+        ...task,
+        sub_task:gog
+    })
+    console.log(task)
   }
 
-  useEffect(() => {
-    if (Others_task.length === 0) dispatch(othersTaskApi());
-  }, [Others_task.length]);
   return (
-    <Box>
-      <Flex
-        m="2"
-        p="2"
+    <Box
+      size="lg"
+      bg="whitesmoke"
+      h="5rem"
+      borderRadius="1rem"
+      _hover={{
+        bg: "#eaeaea",
+      }}
+      w="20rem"
+      onClick={() => handleUpdate()}
+    >
+      <Text
+        m="3"
+        p="1"
+        pl="3"
         cursor="pointer"
-        justify="space-between"
         _hover={{
-          bg: "whitesmoke",
+          bg: "#eaeaea",
         }}
       >
-        Others
-        <Box onClick={() => onOpen()}>
-          <AddIcon />
-        </Box>
-      </Flex>
-      {Others_task.map((el, i) => {
-        return <Textname data={el} key={i} index={i} />
-      })}
+        {data.task_name}
+      </Text>
+      <Modal onClose={onClose} size={"full"} isOpen={isOpen}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>{data.task_name}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Checkbox isChecked={task.task_completed} onChange={handleTask}>Mark as Done</Checkbox>
 
-      <Drawer onClose={onClose} isOpen={isOpen} size={"md"}>
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>
-            <Checkbox onChange={handleTask}>Mark as Done</Checkbox>
-          </DrawerHeader>
-          <DrawerBody>
             <Input
               placeholder="Task name"
               name="task_name"
+              value={task.task_name}
               onChange={handleTask}
             />
 
             <Textarea
               mt="2"
-              //   value={value}
+              value={task.task_details}
               name="task_details"
               onChange={handleTask}
               placeholder="Add details..."
@@ -143,13 +165,17 @@ const Others = () => {
             <br></br>
             <br></br>
             <Text fontWeight="bold">SUBTASKS</Text>
-
+            {task.sub_task.map((el,i) => {
+              return (
+               <SubtaskPart data={el} index={i} SubTaskChanged={SubTaskChanged} />
+              );
+            })}
             {show ? (
               <Flex m="2">
                 <Input
                   placeholder="Add SubTask..."
                   name="sub_task"
-                  //   value={subtaskvalue}
+                  value={subtaskvalue}
                   onChange={(e) => Setsubtaskvalue(e.target.value)}
                 />
                 <Button
@@ -163,6 +189,7 @@ const Others = () => {
             ) : (
               ""
             )}
+
             <Button
               leftIcon={<AddIcon />}
               m="2"
@@ -173,18 +200,21 @@ const Others = () => {
             >
               Add SubTask
             </Button>
-            <br></br>
-            <br></br>
-            <br></br>
 
-            <Button colorScheme={"blue"} onClick={handleSubmit}>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Button colorScheme={"blue"} onClick={() => handleSubmit()}>
               Submit
             </Button>
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer>
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };
 
-export default Others;
+export default Textname;
