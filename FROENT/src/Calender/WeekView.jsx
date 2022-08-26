@@ -3,6 +3,8 @@ import moment from "moment";
 import WeekToolbar from "./WeekToolbar";
 import { getAllDaysInTheWeek } from "./util";
 import Weekheader from "./Weekheader";
+import ScrollCalender from "../Pages/Dashbord/ScrollCalender";
+import CalenderGrid from "../Pages/Dashbord/CalenderGrid";
 class WeekView extends Component {
   state = {
     startDate: +moment(),
@@ -45,12 +47,14 @@ class WeekView extends Component {
       this.state;
     return (
       <>
-        <WeekToolbar
+        <ScrollCalender
           goToPreviousWeek={this.goToPreviousWeek}
           goToNextWeek={this.goToNextWeek}
           startDate={startDate}
+          goToToday={this.goToToday}
         />
-          <Weekheader weekDays={weekDays} />
+        {/* <Weekheader weekDays={weekDays} /> */}
+        <CalenderGrid weekDays={weekDays}/>
       </>
     );
   }
