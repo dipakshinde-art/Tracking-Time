@@ -24,8 +24,8 @@ const SubtaskPart = ({data,index,SubTaskChanged}) => {
         Setvisible(true)
     }
     const handleChanges = () => {
-        console.log(index)
-        console.log(input)
+        // console.log(index)
+        // console.log(input)
         SubTaskChanged(input,index)
     }
     

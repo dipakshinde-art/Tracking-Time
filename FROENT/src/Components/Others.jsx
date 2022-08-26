@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { othersAddTaskApi, othersTaskApi } from "../taskreducer/action";
+import { delete_Others_task, othersAddTaskApi, othersTaskApi, update_others_task } from "../taskreducer/action";
 import Drawerele from "./Drawerele";
 import Textname from "./Textname";
 
@@ -78,6 +78,7 @@ const Others = () => {
   const handleSubmit = () => {
     console.log(task);
     dispatch(othersAddTaskApi(task));
+    onClose();
   };
   const handleShow = () => {
     if (show == false && task.task_name) {
@@ -114,7 +115,7 @@ const Others = () => {
         </Box>
       </Flex>
       {Others_task.map((el, i) => {
-        return <Textname data={el} key={i} index={i} />
+        return <Textname data={el} key={i} index={i} update={update_others_task} deleted={delete_Others_task} />
       })}
 
       <Drawer onClose={onClose} isOpen={isOpen} size={"md"}>

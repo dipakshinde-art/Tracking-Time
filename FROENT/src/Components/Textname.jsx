@@ -18,10 +18,10 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { update_others_task } from "../taskreducer/action";
+import { delete_Others_task, update_others_task } from "../taskreducer/action";
 import SubtaskPart from "./SubtaskPart";
 
-const Textname = ({ data,index }) => {
+const Textname = ({ data,index,update,deleted }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [show, Setshow] = useState(false);
   const [status, Setstatus] = useState(false);
@@ -92,9 +92,14 @@ const Textname = ({ data,index }) => {
   const handleSubmit = () => {
     console.log(task);
     console.log(index);
-      dispatch(update_others_task(task,index));
+    console.log(update);
+      dispatch(update(task,index));
       onClose()
   };
+  const handleDelete = () =>{
+    dispatch(deleted(index))
+    onClose();
+  }
   //   console.log(data);
 
   const SubTaskChanged =(obj,index) =>{
@@ -167,7 +172,7 @@ const Textname = ({ data,index }) => {
             <Text fontWeight="bold">SUBTASKS</Text>
             {task.sub_task.map((el,i) => {
               return (
-               <SubtaskPart data={el} index={i} SubTaskChanged={SubTaskChanged} />
+               <SubtaskPart data={el} key={i} index={i} SubTaskChanged={SubTaskChanged} />
               );
             })}
             {show ? (
@@ -206,6 +211,9 @@ const Textname = ({ data,index }) => {
             <br></br>
             <Button colorScheme={"blue"} onClick={() => handleSubmit()}>
               Submit
+            </Button>
+            <Button colorScheme={"red"} ml="3" onClick={() => handleDelete()}>
+              Delete
             </Button>
           </ModalBody>
           <ModalFooter>

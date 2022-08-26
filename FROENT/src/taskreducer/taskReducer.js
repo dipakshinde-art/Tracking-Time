@@ -12,6 +12,15 @@ import {
   ADD_TASK_LOADING,
   ADD_TASK_SUCCESS,
   CHANGE_SECTION,
+  DELETE_OTHERS_TASK_ERROR,
+  DELETE_OTHERS_TASK_LOADING,
+  DELETE_OTHERS_TASK_SUCCESS,
+  DELETE_PERSONAL_TASK_ERROR,
+  DELETE_PERSONAL_TASK_LOADING,
+  DELETE_PERSONAL_TASK_SUCCESS,
+  DELETE_PROFESSIONAL_TASK_ERROR,
+  DELETE_PROFESSIONAL_TASK_LOADING,
+  DELETE_PROFESSIONAL_TASK_SUCCESS,
   FILTER_ALL_TASK,
   GET_OTHERS_TASK_ERROR,
   GET_OTHERS_TASK_LOADING,
@@ -28,6 +37,12 @@ import {
   UPDATE_OTHERS_TASK_ERROR,
   UPDATE_OTHERS_TASK_LOADING,
   UPDATE_OTHERS_TASK_SUCCESS,
+  UPDATE_PERSONAL_TASK_ERROR,
+  UPDATE_PERSONAL_TASK_LOADING,
+  UPDATE_PERSONAL_TASK_SUCCESS,
+  UPDATE_PROFESSIONAL_TASK_ERROR,
+  UPDATE_PROFESSIONAL_TASK_LOADING,
+  UPDATE_PROFESSIONAL_TASK_SUCCESS,
 } from "./action.type";
 
 const initialState = {
@@ -251,7 +266,7 @@ export const taskReducer = (state = initialState, { type, payload }) => {
       case UPDATE_OTHERS_TASK_SUCCESS: {
           let updated = state.Others_task.map((el)=>{
               if(el.id==payload.id) {
-                  console.log(el)
+                  // console.log(el)
                   return payload
                 }
                 else{
@@ -276,6 +291,160 @@ export const taskReducer = (state = initialState, { type, payload }) => {
       }
 
       
+      case DELETE_OTHERS_TASK_LOADING: {
+        return {
+          ...state,
+          loading: true,
+          error: false,
+        };
+      }
+      case DELETE_OTHERS_TASK_SUCCESS: {
+        // console.log(payload)
+          let updated = state.Others_task.filter((el)=>(el.id!=payload))
+            console.log(updated)
+            // if(payload.id==oth)
+        return {
+          ...state,
+          loading: false,
+          Others_task:updated,
+          error: false,
+        };
+      }
+      case DELETE_OTHERS_TASK_ERROR: {
+        return {
+          ...state,
+          loading: false,
+          error: true,
+        };
+      }
+
+      case UPDATE_PROFESSIONAL_TASK_LOADING: {
+        return {
+          ...state,
+          loading: true,
+          error: false,
+        };
+      }
+      case UPDATE_PROFESSIONAL_TASK_SUCCESS: {
+          let updated = state.Professional_task.map((el)=>{
+              if(el.id==payload.id) {
+                  // console.log(el)
+                  return payload
+                }
+                else{
+                    return el
+                }
+            })
+            // console.log(updated)
+            // if(payload.id==oth)
+        return {
+          ...state,
+          loading: false,
+          Professional_task:updated,
+          error: false,
+        };
+      }
+      case UPDATE_PROFESSIONAL_TASK_ERROR: {
+        return {
+          ...state,
+          loading: false,
+          error: true,
+        };
+      }
+
+      
+      case DELETE_PROFESSIONAL_TASK_LOADING: {
+        return {
+          ...state,
+          loading: true,
+          error: false,
+        };
+      }
+      case DELETE_PROFESSIONAL_TASK_SUCCESS: {
+        // console.log(payload)
+          let updated = state.Professional_task.filter((el)=>(el.id!=payload))
+            console.log(updated)
+            // if(payload.id==oth)
+        return {
+          ...state,
+          loading: false,
+          Professional_task:updated,
+          error: false,
+        };
+      }
+      case DELETE_PROFESSIONAL_TASK_ERROR: {
+        return {
+          ...state,
+          loading: false,
+          error: true,
+        };
+      }
+
+      
+
+      case UPDATE_PERSONAL_TASK_LOADING: {
+        return {
+          ...state,
+          loading: true,
+          error: false,
+        };
+      }
+      case UPDATE_PERSONAL_TASK_SUCCESS: {
+          let updated = state.Personal_task.map((el)=>{
+              if(el.id==payload.id) {
+                  // console.log(el)
+                  return payload
+                }
+                else{
+                    return el
+                }
+            })
+            // console.log(updated)
+            // if(payload.id==oth)
+        return {
+          ...state,
+          loading: false,
+          Personal_task:updated,
+          error: false,
+        };
+      }
+      case UPDATE_PERSONAL_TASK_ERROR: {
+        return {
+          ...state,
+          loading: false,
+          error: true,
+        };
+      }
+
+      
+      case DELETE_PERSONAL_TASK_LOADING: {
+        return {
+          ...state,
+          loading: true,
+          error: false,
+        };
+      }
+      case DELETE_PERSONAL_TASK_SUCCESS: {
+        // console.log(payload)
+          let updated = state.Personal_task.filter((el)=>(el.id!=payload))
+            // console.log(updated)
+            // if(payload.id==oth)
+        return {
+          ...state,
+          loading: false,
+          Personal_task:updated,
+          error: false,
+        };
+      }
+      case DELETE_PERSONAL_TASK_ERROR: {
+        return {
+          ...state,
+          loading: false,
+          error: true,
+        };
+      }
+
+
     default: {
       return state;
     }

@@ -16,8 +16,9 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { personalAddTaskApi, personalTaskApi } from "../taskreducer/action";
+import { delete_Personal_task, personalAddTaskApi, personalTaskApi, update_personal_task } from "../taskreducer/action";
 import { AddIcon } from "@chakra-ui/icons";
+import Textname from "./Textname";
 
 const Personal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -112,29 +113,7 @@ const Personal = () => {
       </Flex>
       {Personal_task.map((el, i) => {
         return (
-          <Box
-            key={i}
-            size="lg"
-            bg="whitesmoke"
-            _hover={{
-              bg: "#eaeaea",
-            }}
-            h="5rem"
-            borderRadius="1rem"
-            w="20rem"
-          >
-            <Text
-              m="3"
-              p="1"
-              pl="3"
-              cursor="pointer"
-              _hover={{
-                bg: "#eaeaea",
-              }}
-            >
-              {el.task_name}
-            </Text>
-          </Box>
+          <Textname update={update_personal_task} deleted={delete_Personal_task} data={el} key={i} index={i} />
         );
       })}
 
