@@ -7,7 +7,12 @@ const BlogsLayout = (data) => {
       {data.data.length > 0 &&
         data.data.map((item) => (
           <a href={item.link} key={item.id}>
-            <GridItem boxShadow="md" borderBottomRadius={4}>
+            <GridItem
+              boxShadow="md"
+              borderBottomRadius={4}
+              transition="500ms"
+              _hover={{ transform: `scale(1.05)`, boxShadow: "xl" }}
+            >
               <Flex bg={item.bg} h="11rem" align="end" justify="center">
                 <Image h="80%" src={item.image} />
               </Flex>

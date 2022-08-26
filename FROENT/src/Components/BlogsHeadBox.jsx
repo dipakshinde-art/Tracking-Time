@@ -18,6 +18,7 @@ const BlogsHeadBox = ({ headingText }) => {
         fontSize="0.8rem"
         letterSpacing={1.5}
         color="white"
+        p="0 1rem"
       >
         {headingText}
       </Text>
@@ -52,7 +53,12 @@ const BlogsHeadBox = ({ headingText }) => {
           fontWeight={700}
           p="0.6rem 1.5rem"
           mt="4rem"
-          _hover={{ bg: "none" }}
+          transition="300ms"
+          _hover={{
+            bg: "none",
+            color: "RGBA(0, 0, 0, 0.64)",
+            border: "2px solid RGBA(0, 0, 0, 0.64)",
+          }}
         >
           READ ARTICLE
         </Button>
