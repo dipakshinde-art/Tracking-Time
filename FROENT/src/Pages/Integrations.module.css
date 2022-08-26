@@ -1,0 +1,68 @@
+.main {
+    width: 100%;
+    height: auto;
+    padding: 80px 120px;
+}
+
+.top {
+    width: 100%;
+    height: auto;
+    margin: 70px 0 0 0;
+
+}
+
+.heading {
+    width: 100%;
+    height: auto;
+    line-height: 50px;
+    background-image: url('https://trackingtime.co/wp-content/themes/trackingtime-v4/img/layout/integrations/lines-integration.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.text2 {
+    width: 40%
+}
+
+.text4 {
+    width: 80%
+}
+
+.input {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 0 15px
+}
+
+.input>Input {
+    border: none;
+    outline: none;
+
+}
+
+.apps {
+    margin: 40px 0 0 0;
+}
+
+.img {
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 15px;
+    width: 70px;
+
+}
+
+.grid_item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    gap: 20px
+}

@@ -27,6 +27,7 @@
   font-size: 12px;
   letter-spacing: 2px;
   font-weight: 700;
+  display: flex;
 }
 
 .caaaaa {
@@ -42,4 +43,17 @@
   width: 793.33px;
   display: flex;
   justify-content: flex-end;
+}
+.list
+{
+  padding:1rem 6rem 1rem 1rem ;
+  line-height:4rem;
+}
+.li{
+  color:black;
+  font-size:14px;
+  font-weight:800;
+}
+.li:hover{
+  color:#00AD95;
 }
