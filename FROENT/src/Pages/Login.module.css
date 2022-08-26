@@ -221,7 +221,7 @@
      height:25vh;
    
     justify-content: center;
-    margin-top: 5vh;
+    margin-top: 4vh;
     
 }
 .prbuttondiv>button
@@ -232,10 +232,10 @@
     border-radius: 5px;
     width:40vw;
     height:auto;
-    display:flex;
+    display:flex; 
     justify-content: space-between;
     font-size: large;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
     /* background-color: yellow; */
 }
 .prbuttondiv>button>img
@@ -247,16 +247,16 @@
     width:10%;
     height:6vh;
     display:flex;
-    justify-content: space-between;
+justify-content: space-between;
 }
-.prbuttondiv>button>span
+/* .prbuttondiv>button>span
 {
     border-radius: 5px;
     width:80%;
     height:6vh;
     display:flex;
     justify-content: space-between;
-}
+} */
 .prsignup{
   
     height:40vh;

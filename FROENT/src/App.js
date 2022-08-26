@@ -16,7 +16,7 @@ function App() {
   return (
 
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Landingpage />} />
         <Route path="/project" element={<Projects />} />
