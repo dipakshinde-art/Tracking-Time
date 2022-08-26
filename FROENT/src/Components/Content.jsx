@@ -1,6 +1,8 @@
 import { Box } from '@chakra-ui/react';
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import Broad from './Broad';
+import List from './List'
 
 const Content = () => {
 
@@ -13,14 +15,10 @@ const Content = () => {
     }, [change])
     
     if(change === "List"){
-        return <Box>
-            List
-        </Box>
+        return <List />
     }
     else if(change === "Board"){
-        return <Box>
-            Board
-        </Box>
+        return <Broad />
     }
     else if(change === "Timeline"){
         return <Box>
