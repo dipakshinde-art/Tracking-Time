@@ -10,27 +10,18 @@ import {
   DrawerOverlay,
   Flex,
   Input,
-  Menu,
-  MenuButton,
-  MenuItemOption,
-  MenuList,
-  MenuOptionGroup,
-  Tab,
-  TabList,
-  Tabs,
   Text,
   Textarea,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addTaskApi, changeSection, filterTask } from "../taskreducer/action";
-import { ChevronDownIcon, AddIcon } from "@chakra-ui/icons";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { delete_Personal_task, personalAddTaskApi, personalTaskApi, update_personal_task } from "../taskreducer/action";
+import { AddIcon } from "@chakra-ui/icons";
+import Textname from "./Textname";
 
-const Innavbr = () => {
-  const dispatch = useDispatch();
+const Personal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [val, Setval] = useState(false);
   const [show, Setshow] = useState(false);
   const [status, Setstatus] = useState(false);
   const [subtaskvalue, Setsubtaskvalue] = useState("");
@@ -81,8 +72,8 @@ const Innavbr = () => {
   };
 
   const handleSubmit = () => {
-    console.log(task);
-    dispatch(addTaskApi(task));
+    // console.log(task);
+      dispatch(personalAddTaskApi(task))
   };
   const handleShow = () => {
     if (show == false && task.task_name) {
@@ -92,83 +83,40 @@ const Innavbr = () => {
       Setshow(false);
     }
   };
-  const handleVal = () => {
-    if (val) {
-      Setval(false);
-      dispatch(filterTask(false));
-    } else {
-      Setval(true);
-      dispatch(filterTask(true));
-    }
-  };
-  const handleChange = (chg) => {
-    console.log(chg);
-    dispatch(changeSection(chg));
-  };
 
-  const handleAddtask = () => {
-    onOpen();
-  };
+  let { Personal_task, filter } = useSelector((state) => state.task);
+  if (filter) {
+    Personal_task = Personal_task.filter((el) => el.task_completed);
+  } else {
+    Personal_task = Personal_task;
+  }
+  const dispatch = useDispatch();
+//   console.log(Personal_task);
+  useEffect(() => {
+    if (Personal_task.length === 0) dispatch(personalTaskApi());
+  }, [Personal_task.length]);
   return (
-    <Flex
-      justify="space-between"
-      border="1px solid grey"
-      opacity="3"
-      pos={"sticky"}
-      top="0"
-      p="2"
-      bg="white"
-    >
-      <Flex justify={"space-around"}>
-        <Tabs borderBottom="1px solid white">
-          <TabList>
-            <Tab ml="4" p="2" cursor={"pointer"} borderBottom="2px solid blue">
-              <Text onClick={() => handleChange("List")}>List</Text>
-            </Tab>
-
-            <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid black">
-              <Text onClick={() => handleChange("Board")}>Board</Text>
-            </Tab>
-
-            <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
-              <Text onClick={() => handleChange("Timeline")}>Timeline</Text>
-            </Tab>
-            <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
-              <Text onClick={() => handleChange("Report")}>Report</Text>
-            </Tab>
-            <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
-              <Text onClick={() => handleChange("Notes")}>Notes</Text>
-            </Tab>
-          </TabList>
-        </Tabs>
+    <Box>
+      <Flex
+        justify="space-between"
+        m="2"
+        p="2"
+        cursor="pointer"
+        _hover={{
+          bg: "whitesmoke",
+        }}
+      >
+        Personal
+        <Box onClick={() => onOpen()}>
+          <AddIcon />
+        </Box>
       </Flex>
-      <Box>
-        <Menu>
-          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-            {val ? "Open tasks" : "All tasks"}
-          </MenuButton>
+      {Personal_task.map((el, i) => {
+        return (
+          <Textname update={update_personal_task} deleted={delete_Personal_task} data={el} key={i} index={i} />
+        );
+      })}
 
-          <MenuList>
-            <MenuOptionGroup defaultValue="all" type="radio">
-              <MenuItemOption value="all" onClick={handleVal}>
-                All tasks
-              </MenuItemOption>
-              <MenuItemOption value="open" onClick={handleVal}>
-                Open tasks
-              </MenuItemOption>
-            </MenuOptionGroup>
-          </MenuList>
-        </Menu>
-        <Button
-          leftIcon={<AddIcon />}
-          ms="2"
-          variant="outline"
-          bg="whitesmoke"
-          onClick={handleAddtask}
-        >
-          Task
-        </Button>
-      </Box>
       <Drawer onClose={onClose} isOpen={isOpen} size={"md"}>
         <DrawerOverlay />
         <DrawerContent>
@@ -185,7 +133,7 @@ const Innavbr = () => {
 
             <Textarea
               mt="2"
-              // value={value}
+              //   value={value}
               name="task_details"
               onChange={handleTask}
               placeholder="Add details..."
@@ -234,8 +182,8 @@ const Innavbr = () => {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-    </Flex>
+    </Box>
   );
 };
 
-export default Innavbr;
+export default Personal;

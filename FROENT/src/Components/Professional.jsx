@@ -1,3 +1,4 @@
+import { AddIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -10,27 +11,23 @@ import {
   DrawerOverlay,
   Flex,
   Input,
-  Menu,
-  MenuButton,
-  MenuItemOption,
-  MenuList,
-  MenuOptionGroup,
-  Tab,
-  TabList,
-  Tabs,
   Text,
   Textarea,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addTaskApi, changeSection, filterTask } from "../taskreducer/action";
-import { ChevronDownIcon, AddIcon } from "@chakra-ui/icons";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  delete_Professional_task,
+  professionalAddTaskApi,
+  professionalTaskApi,
+  update_professional_task,
+} from "../taskreducer/action";
+import Textname from "./Textname";
 
-const Innavbr = () => {
+const Professional = () => {
   const dispatch = useDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [val, Setval] = useState(false);
   const [show, Setshow] = useState(false);
   const [status, Setstatus] = useState(false);
   const [subtaskvalue, Setsubtaskvalue] = useState("");
@@ -57,7 +54,7 @@ const Innavbr = () => {
     e.preventDefault();
     let { name, value, type } = e.target;
 
-    if (type == "checkbox") {
+    if (type === "checkbox") {
       if (status) {
         console.log(task.task_completed);
         Setstatus(false);
@@ -81,8 +78,8 @@ const Innavbr = () => {
   };
 
   const handleSubmit = () => {
-    console.log(task);
-    dispatch(addTaskApi(task));
+    // console.log(task);
+    dispatch(professionalAddTaskApi(task));
   };
   const handleShow = () => {
     if (show == false && task.task_name) {
@@ -92,83 +89,38 @@ const Innavbr = () => {
       Setshow(false);
     }
   };
-  const handleVal = () => {
-    if (val) {
-      Setval(false);
-      dispatch(filterTask(false));
-    } else {
-      Setval(true);
-      dispatch(filterTask(true));
-    }
-  };
-  const handleChange = (chg) => {
-    console.log(chg);
-    dispatch(changeSection(chg));
-  };
 
-  const handleAddtask = () => {
-    onOpen();
-  };
+  let { Professional_task, filter } = useSelector((state) => state.task);
+  if (filter) {
+    Professional_task = Professional_task.filter((el) => el.task_completed);
+  } else {
+    Professional_task = Professional_task;
+  }
+
+  useEffect(() => {
+    if (Professional_task.length === 0) dispatch(professionalTaskApi());
+  }, [Professional_task.length]);
   return (
-    <Flex
-      justify="space-between"
-      border="1px solid grey"
-      opacity="3"
-      pos={"sticky"}
-      top="0"
-      p="2"
-      bg="white"
-    >
-      <Flex justify={"space-around"}>
-        <Tabs borderBottom="1px solid white">
-          <TabList>
-            <Tab ml="4" p="2" cursor={"pointer"} borderBottom="2px solid blue">
-              <Text onClick={() => handleChange("List")}>List</Text>
-            </Tab>
-
-            <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid black">
-              <Text onClick={() => handleChange("Board")}>Board</Text>
-            </Tab>
-
-            <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
-              <Text onClick={() => handleChange("Timeline")}>Timeline</Text>
-            </Tab>
-            <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
-              <Text onClick={() => handleChange("Report")}>Report</Text>
-            </Tab>
-            <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
-              <Text onClick={() => handleChange("Notes")}>Notes</Text>
-            </Tab>
-          </TabList>
-        </Tabs>
+    <Box>
+      <Flex
+        m="2"
+        p="2"
+        justify="space-between"
+        cursor="pointer"
+        _hover={{
+          bg: "whitesmoke",
+        }}
+      >
+        Professional
+        <Box onClick={() => onOpen()}>
+          <AddIcon />
+        </Box>
       </Flex>
-      <Box>
-        <Menu>
-          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-            {val ? "Open tasks" : "All tasks"}
-          </MenuButton>
-
-          <MenuList>
-            <MenuOptionGroup defaultValue="all" type="radio">
-              <MenuItemOption value="all" onClick={handleVal}>
-                All tasks
-              </MenuItemOption>
-              <MenuItemOption value="open" onClick={handleVal}>
-                Open tasks
-              </MenuItemOption>
-            </MenuOptionGroup>
-          </MenuList>
-        </Menu>
-        <Button
-          leftIcon={<AddIcon />}
-          ms="2"
-          variant="outline"
-          bg="whitesmoke"
-          onClick={handleAddtask}
-        >
-          Task
-        </Button>
-      </Box>
+      {Professional_task.map((el, i) => {
+        return (
+           <Textname update={update_professional_task} deleted={delete_Professional_task} data={el} key={i} index={i} />
+        );
+      })}
       <Drawer onClose={onClose} isOpen={isOpen} size={"md"}>
         <DrawerOverlay />
         <DrawerContent>
@@ -185,7 +137,7 @@ const Innavbr = () => {
 
             <Textarea
               mt="2"
-              // value={value}
+              //   value={value}
               name="task_details"
               onChange={handleTask}
               placeholder="Add details..."
@@ -234,8 +186,8 @@ const Innavbr = () => {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-    </Flex>
+    </Box>
   );
 };
 
-export default Innavbr;
+export default Professional;

@@ -11,6 +11,7 @@ import Productivity from "./Pages/blogs/Productivity";
 import RemoteWork from "./Pages/blogs/RemoteWork";
 import BestPractice from "./Pages/blogs/BestPractice";
 import Resources from "./Pages/blogs/Resources";
+import TimeTracker from "./Pages/TimeTracker";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/remote-work" element={<RemoteWork />} />
         <Route path="/best-practice" element={<BestPractice />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/features/time-tracker" element={<TimeTracker />} />
       </Routes>
     </div>
   );

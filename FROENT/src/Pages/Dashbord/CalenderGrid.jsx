@@ -1,80 +1,245 @@
-import { Box, Flex, Grid, GridItem, Spacer } from "@chakra-ui/react";
-import React from "react";
-import ManualClose  from "./Form.jsx";
+import { Box, Divider, Flex, Grid, GridItem, Spacer } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import ManualClose from "./Form.jsx";
+import axios from "axios";
+import NoteCard from "../../Calender/NoteCard.jsx";
+const CalenderGrid = ({ weekDays }) => {
+  const [note, setNotes] = useState([]);
+  const current = new Date();
+  const CDate = `${current.getDate()}/${
+    current.getMonth() + 1
+  }/${current.getFullYear()}`;
 
-const CalenderGrid = () => {
+ // console.log(note);
+  const getNotes = () => {
+    axios.get("http://localhost:5000/note/list").then((response) => {
+      // console.log(response);
+      setNotes(response.data);
+    });
+  };
+  useEffect(() => {
+    getNotes();
+  }, [CDate]);
+
   return (
     <>
       <Grid
-        templateColumns="repeat(1, 50px 1fr 1fr 1fr 1fr 1fr 50px)"
+        templateColumns="repeat(1, 70px 1fr 1fr 1fr 1fr 1fr 70px)"
         gap={0.1}
+        border="1px solid #ccc"
       >
         <GridItem w="100%" h="100vh" border="1px solid #ccc" textAlign="center">
-          <ManualClose />
+          <Box>{weekDays[0].weekDayName}</Box>
+          <Box>{weekDays[0].date}</Box>
+          <Divider />
+
+          <Box
+            bg="#f3f3f3"
+            opacity="1"
+            border="1px solid #ccc"
+            borderRadius="5px"
+            m="10px"
+          >
+            {" "}
+            <ManualClose today={weekDays[0].date}/>
+          </Box>
+          <Box>
+            {note.map((item) => {
+              return (
+                <NoteCard
+                  key={item._id}
+                  {...item}
+                  weekDays={weekDays[0].date}
+                />
+              );
+            })}
+          </Box>
+        </GridItem>
+        <GridItem w="100%" h="100vh" border="1px solid #ccc">
+          <Flex>
+            <Box p="3">{weekDays[1].weekDayName}</Box>
+            <Spacer />
+            <Box p="3">{weekDays[1].date}</Box>
+          </Flex>{" "}
+          <Divider />
+          <Box
+            size="sm"
+            m="10px"
+            align="center"
+            borderRadius="5px"
+            color="#6c6c6c"
+            bg="#f3f3f3"
+            opacity="1"
+            border="1px solid #ccc"
+          >
+            <ManualClose today={weekDays[1].date}/>
+          </Box>
+          <Box>
+            {note.map((item) => {
+              return (
+                <NoteCard
+                  key={item._id}
+                  {...item}
+                  weekDays={weekDays[1].date}
+                />
+              );
+            })}
+          </Box>
         </GridItem>
         <GridItem w="100%" h="100vh" border="1px solid #ccc">
           {" "}
           <Flex>
-            <Box p="4" bg="red.400">
-              Box 1
-            </Box>
+            <Box p="3">{weekDays[2].weekDayName}</Box>
             <Spacer />
-            <Box p="4" bg="green.400">
-              Box 2
-            </Box>
+            <Box p="3">{weekDays[2].date}</Box>
           </Flex>{" "}
+          <Divider />{" "}
+          <Box
+            size="sm"
+            m="10px"
+            align="center"
+            borderRadius="5px"
+            color="#6c6c6c"
+            bg="#f3f3f3"
+            opacity="1"
+            border="1px solid #ccc"
+          >
+            <ManualClose today={weekDays[2].date}/>
+          </Box>
+          <Box>
+            {note.map((item) => {
+              return (
+                <NoteCard
+                  key={item._id}
+                  {...item}
+                  weekDays={weekDays[2].date}
+                />
+              );
+            })}
+          </Box>
         </GridItem>
         <GridItem w="100%" h="100vh" border="1px solid #ccc">
           {" "}
           <Flex>
-            <Box p="4" bg="red.400">
-              Box 1
-            </Box>
+            <Box p="3">{weekDays[3].weekDayName}</Box>
             <Spacer />
-            <Box p="4" bg="green.400">
-              Box 2
-            </Box>
+            <Box p="3">{weekDays[3].date}</Box>
           </Flex>{" "}
+          <Divider />{" "}
+          <Box
+            size="sm"
+            m="10px"
+            align="center"
+            borderRadius="5px"
+            color="#6c6c6c"
+            bg="#f3f3f3"
+            opacity="1"
+            border="1px solid #ccc"
+          >
+            <ManualClose today={weekDays[3].date}/>
+          </Box>
+          <Box>
+            {note.map((item) => {
+              return (
+                <NoteCard
+                  key={item._id}
+                  {...item}
+                  weekDays={weekDays[3].date}
+                />
+              );
+            })}
+          </Box>
         </GridItem>
         <GridItem w="100%" h="100vh" border="1px solid #ccc">
           {" "}
           <Flex>
-            <Box p="4" bg="red.400">
-              Box 1
-            </Box>
+            <Box p="3">{weekDays[4].weekDayName}</Box>
             <Spacer />
-            <Box p="4" bg="green.400">
-              Box 2
-            </Box>
+            <Box p="3">{weekDays[4].date}</Box>
           </Flex>{" "}
+          <Divider />
+          <Box
+            size="sm"
+            m="10px"
+            align="center"
+            borderRadius="5px"
+            color="#6c6c6c"
+            bg="#f3f3f3"
+            opacity="1"
+            border="1px solid #ccc"
+          >
+            <ManualClose today={weekDays[4].date} />
+          </Box>
+          <Box>
+            {note.map((item) => {
+              return (
+                <NoteCard
+                  key={item._id}
+                  {...item}
+                  weekDays={weekDays[4].date}
+                />
+              );
+            })}
+          </Box>
         </GridItem>
         <GridItem w="100%" h="100vh" border="1px solid #ccc">
           {" "}
           <Flex>
-            <Box p="4" bg="red.400">
-              Box 1
-            </Box>
+            <Box p="3">{weekDays[5].weekDayName}</Box>
             <Spacer />
-            <Box p="4" bg="green.400">
-              Box 2
-            </Box>
+            <Box p="3">{weekDays[5].date}</Box>
           </Flex>{" "}
-        </GridItem>
-        <GridItem w="100%" h="100vh" border="1px solid #ccc">
-          {" "}
-          <Flex>
-            <Box p="4" bg="red.400">
-              Box 1
-            </Box>
-            <Spacer />
-            <Box p="4" bg="green.400">
-              Box 2
-            </Box>
-          </Flex>{" "}
+          <Divider />{" "}
+          <Box
+            size="sm"
+            m="10px"
+            align="center"
+            borderRadius="5px"
+            color="#6c6c6c"
+            bg="#f3f3f3"
+            opacity="1"
+            border="1px solid #ccc"
+          >
+            <ManualClose today={weekDays[5].date} />
+          </Box>
+          <Box>
+            {note.map((item) => {
+              return (
+                <NoteCard
+                  key={item._id}
+                  {...item}
+                  weekDays={weekDays[5].date}
+                />
+              );
+            })}
+          </Box>
         </GridItem>
         <GridItem w="100%" h="100vh" border="1px solid #ccc" textAlign="center">
-          {" "}
-          Sun{" "}
+          <Box>{weekDays[6].weekDayName}</Box>
+          <Box>{weekDays[6].date}</Box>
+          <Divider />
+
+          <Box
+            bg="#f3f3f3"
+            opacity="1"
+            border="1px solid #ccc"
+            borderRadius="5px"
+            m="10px"
+          >
+            {" "}
+            <ManualClose today={weekDays[6].date} />
+          </Box>
+          <Box>
+            {note.map((item) => {
+              return (
+                <NoteCard
+                  key={item._id}
+                  {...item}
+                  weekDays={weekDays[6].date}
+                />
+              );
+            })}
+          </Box>
         </GridItem>
       </Grid>
     </>

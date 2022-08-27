@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import moment from "moment";
 import {
   Menu,
   MenuButton,
@@ -20,39 +20,16 @@ import {
   QuestionOutlineIcon,
 } from "@chakra-ui/icons";
 
-const ScrollCalender = () => {
-  const onChange = (date) => {
-    console.log(date.toString());
-  };
-  let date;
-  const current = new Date();
-  //  date = `${current.getDate()}/${
-  //   current.getMonth() + 1
-  // }/${current.getFullYear()}`;
+const ScrollCalender = ({
+  goToPreviousWeek,
+  goToNextWeek,
+  startDate,
+  goToToday,
+}) => {
+  const formattedDate = moment(startDate).format("MMM YYYY");
 
-  date = `${current.getMonth() + 1}/${current.getFullYear()}`;
-  let m = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let month = "" + current.getFullYear();
-  for (let i = 0; i < m.length; i++) {
-    if (i == 7) {
-      month = m[i];
-    }
-  }
   return (
-    <Box>
+    <Box py={{ base: 2 }} px={{ base: 4 }}>
       <Flex
         mt="5"
         _hover={{
@@ -60,13 +37,14 @@ const ScrollCalender = () => {
         }}
       >
         <Box>
-          <Menu>
+          <Menu onClick={goToToday}>
             <MenuButton
-              leftIcon={<ChevronLeftIcon />}
+             
+              leftIcon={<ChevronLeftIcon onClick={goToPreviousWeek} />}
               as={Button}
-              rightIcon={<ChevronRightIcon />}
-            > 
-              {month}
+              rightIcon={<ChevronRightIcon onClick={goToNextWeek} />}
+            >
+              {formattedDate}
             </MenuButton>
           </Menu>
         </Box>
