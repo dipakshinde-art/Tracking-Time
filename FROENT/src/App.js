@@ -14,7 +14,6 @@ import Resources from "./Pages/blogs/Resources";
 
 function App() {
   return (
-
     <div>
       {/* <Navbar /> */}
       <Routes>
@@ -29,7 +28,6 @@ function App() {
         <Route path="/best-practice" element={<BestPractice />} />
         <Route path="/resources" element={<Resources />} />
       </Routes>
-
     </div>
   );
 }

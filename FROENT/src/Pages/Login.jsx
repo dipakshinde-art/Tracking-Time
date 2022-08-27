@@ -1,7 +1,7 @@
 import React from "react";
-import axios from 'axios';
+import axios from "axios";
 
-import { useState } from 'react'
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Login.module.css";
 import { auth, provider } from "../firebase";
@@ -28,37 +28,34 @@ export const Login = () => {
   };
 
   //auth
-  const [formData,setformDate]=useState({});
-  const nav=useNavigate()
+  const [formData, setformDate] = useState({});
+  const nav = useNavigate();
 
-  const handleChange=(e)=>{
-   
-    const {value,name}=e.target;
+  const handleChange = (e) => {
+    const { value, name } = e.target;
     setformDate({
       ...formData,
-      [name]:value,
+      [name]: value,
     });
-
   };
-    const handlelogin=async(e)=>{
-      try{
-        e.preventDefault();
-        // console.log(formData)
-        const {data}= await axios.post("http://localhost:5000/auth/login",formData)
-        const user=data[0]
-        localStorage.setItem("userid",user["_id"])
-        // console.log(data[0]);
-        nav("/")
-
+  const handlelogin = async (e) => {
+    try {
+      e.preventDefault();
+      // console.log(formData)
+      const { data } = await axios.post(
+        "http://localhost:5000/auth/login",
+        formData
+      );
+      const user = data[0];
+      localStorage.setItem("userid", user["_id"]);
+      // console.log(data[0]);
+      nav("/");
+    } catch (err) {
+      if (err.response.status === 401) {
+        alert("invaild user ");
       }
-      catch(err){
-             if(err.response.status===401){
-                alert("invaild user ")
-             }
-      }
-    
-      
     }
+  };
 
   return (
     <div>
@@ -75,31 +72,14 @@ export const Login = () => {
             <span style={{ fontWeight: "300" }}>TRACKING</span>TIME
           </span>
           <Box className={styles.prbuttondiv}>
-            <Button
-              width={[16]}
-            
-              onClick={signIn}
-            >
+            <Button width={[]} onClick={signIn}>
               <img
                 alt="google_logo"
                 src="https://pro.trackingtime.co/img/login/google-logo.png"
               ></img>
               <span>Sign in with Google</span>
             </Button>
-            <Button
-              width={{
-                sm: "20rem",
-                md: "20rem",
-                lg: "20rem",
-                xl: "20rem",
-              }}
-              height={{
-                sm: "30rem",
-                md: "30rem",
-                lg: "30rem",
-                xl: "30rem",
-              }}
-            >
+            <Button w="28rem">
               <img
                 alt="microsoft_logo"
                 src="https://pro.trackingtime.co/img/login/microsoft-logo.png"
@@ -132,7 +112,7 @@ export const Login = () => {
                   xl: "18rem",
                 }}
                 type="email"
-                w="18rem"
+                w="16rem"
                 placeholder="Email"
                 onChange={handleChange}
                 name="username"
@@ -147,16 +127,18 @@ export const Login = () => {
                   xl: "18rem",
                 }}
                 type="password"
-                w="18rem"
+                w="16rem"
                 placeholder="Password"
-                name='password' 
+                name="password"
                 onChange={handleChange}
               />
               {/* <Input placeholder='Basic usage' /> */}
 
               <br />
 
-              <button className={styles.loginbtn}  onClick={handlelogin}>Login </button>
+              <button className={styles.loginbtn} onClick={handlelogin}>
+                Login{" "}
+              </button>
               <div className="signup">
                 <span
                   style={{

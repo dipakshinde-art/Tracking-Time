@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./Login.module.css";
 import { auth, provider } from "../firebase";
 import { signInWithPopup } from "firebase/auth";
-
+import { Input,Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 //  import { ActionTypes } from './Reducer';
 import { actionTypes } from "../Reducer";
@@ -48,7 +48,7 @@ export const Signup = () => {
       },
     });
     if (username.length != 0 && password.length != 0) {
-      alert("register successfully");
+      alert("Signup successfully");
       nav("/login");
     }
     if (username.length == 0 && password.length == 0) {
@@ -70,42 +70,48 @@ export const Signup = () => {
             <span style={{ fontWeight: "300" }}>TRACKING</span>TIME
           </span>
           <div className={styles.prbuttondiv}>
-            <button onClick={signIn}>
+            <Button onClick={signIn}>
               <img
                 alt="google_logo"
                 src="https://pro.trackingtime.co/img/login/google-logo.png"
               ></img>
               <span>Sign in with Google</span>
-            </button>
-            <button>
+            </Button>
+            <Button>
               <img
                 alt="microsoft_logo"
                 src="https://pro.trackingtime.co/img/login/microsoft-logo.png"
               ></img>
               <span>Sign in with Microsoft</span>
-            </button>
-            <button>
+            </Button>
+            <Button>
               <img
                 alt="apple_logo"
                 src="https://pro.trackingtime.co/img/login/apple-logo.png"
               ></img>
               <span>Sign in with Apple</span>
-            </button>
+            </Button>
           </div>
           <span className={styles.signuporlogin}>Sign up with your email</span>
           <form className={styles.rightlogin}>
-            <input
+            <Input
+             pattern="[A-Za-z0-9._+-]+@[A-Za-z0-9 -]+\.[a-z]{2,}"
+              w="16rem"
               type="email"
               placeholder="Email"
               value={username}
               onChange={handleuserChange}
-            ></input>
+              required
+            />
             <br />
             <br />
-            <input
+            <Input
+            w="16rem"
               type="password"
               placeholder="Password"
               onChange={handlePasswordChange}
+              required
+              pattern="[a-zA-Z0-9]{8,}" 
             />
             <br />
 
