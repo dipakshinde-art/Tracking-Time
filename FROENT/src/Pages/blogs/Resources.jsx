@@ -1,5 +1,5 @@
 import { Box, Grid } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import BlogsHeadBox from "../../Components/BlogsHeadBox";
 import BlogsLayout from "../../Components/BlogsLayout";
 import BlogsNavbar from "../../Components/BlogsNavbar";
@@ -7,6 +7,10 @@ import { resourcesData } from "../../utils/BlogsData";
 
 const Resources = () => {
   const headingText = "ARTICLES AND RESOURCES TO IMPROVE YOUR TIMEKEEPING";
+  useEffect(() => {
+    const title = "Resources | Tracking Time";
+    document.title = title;
+  }, []);
   return (
     <Box top="68" position="relative">
       <BlogsNavbar />

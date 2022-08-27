@@ -1,5 +1,5 @@
 import { Box, Grid } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import BlogsHeadBox from "../../Components/BlogsHeadBox";
 import BlogsLayout from "../../Components/BlogsLayout";
 import BlogsNavbar from "../../Components/BlogsNavbar";
@@ -8,6 +8,10 @@ import { bestPracticeData } from "../../utils/BlogsData";
 const BestPractice = () => {
   const headingText =
     "BEST PRACTICES ARTICLES WITH TIPS AND RECOMMENDATIONS OF BEST PRACTICES AT WORK.";
+  useEffect(() => {
+    const title = "Best Practices | Tracking Time";
+    document.title = title;
+  }, []);
   return (
     <Box top="68" position="relative">
       <BlogsNavbar />

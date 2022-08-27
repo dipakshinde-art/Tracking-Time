@@ -1,160 +1,140 @@
-.prmaindiv
-{
-    
-    display:flex;
-   height: 100vh;
-   
+.prmaindiv {
+  display: flex;
+  height: 100vh;
 }
-.prleftdiv
-{
-    
-    height:100vh;
-    width:50%;
-    background-color: #1d252c;
+.prleftdiv {
+  height: 100vh;
+  width: 50%;
+  background-color: #1d252c;
 }
 
-                    /* Media query for 800px */
-
+/* Media query for 800px */
 
 /* Media query ends for 800px */
 
-.prrightdiv{
-    
-    max-height:100vh;
-    width:50%;
-    margin:auto;
-    text-align: center;
-    padding-top: 10vh;
-    
+.prrightdiv {
+  max-height: 100vh;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  padding-top: 10vh;
 }
-.prbuttondiv
-{   display:grid;
-     height:18vh;
-    /* border:1px solid black; */
-    justify-content: center;
-    margin-top: 5vh;
-    
+.prbuttondiv {
+  display: grid;
+  height: 18vh;
+  /* border:1px solid black; */
+  justify-content: center;
+  margin-top: 5vh;
 }
-.prbuttondiv>button{
-
-    border:none;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    border-radius: 5px;
-    width:18vw;
-    height:5vh;
-    display:flex;
-    justify-content: space-between;
-    background-color: white;
-    font-weight: 600;
+.prbuttondiv > button {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border-radius: 5px;
+  width: 18vw;
+  height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  font-weight: 600;
 }
 
-.prbuttondiv>button>img{
-  
-    width:8%;
-    height:3vh;
-    margin-top: 2%;
-    margin-left: 3%;
+.prbuttondiv > button > img {
+  width: 8%;
+  height: 3vh;
+  margin-top: 2%;
+  margin-left: 3%;
+}
+.prbuttondiv > button > span {
+  width: 92%;
+  height: 3vh;
+  margin-top: 3%;
+}
+.prsignup {
+  height: 40vh;
+  font-size: small;
+  font-weight: 600;
+}
+.prlogin {
+  /* border:1px solid blue; */
+  height: 40vh;
+  font-size: small;
+  margin-top: 5vh;
+  font-weight: 600;
+}
+.prsignup > form {
+  display: grid;
+  height: 18vh;
 
+  justify-content: center;
 }
-.prbuttondiv>button>span{
-  
-    width:92%;
-    height:3vh;
-    margin-top: 3%;
-    
+.prsignup > form > input {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border-radius: 5px;
+  width: 18vw;
+  height: 6vh;
+  margin-bottom: 2vh;
+  text-align: center;
+}
+.prsignup > div {
+  /* border:1px solid green; */
+  width: 18vw;
+  height: 7vh;
+}
+.prsignup > form > button {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 18vw;
+  height: 7vh;
+}
+.prlogin > form {
+  display: grid;
+  height: 18vh;
 
+  justify-content: center;
 }
-.prsignup{
- 
-    height:40vh;
-    font-size: small;
-    font-weight: 600;
-}
-.prlogin{
-    /* border:1px solid blue; */
-    height:40vh;
-    font-size: small;
-    margin-top: 5vh;
-    font-weight: 600;
-}
-.prsignup>form
-{    display:grid;
-    height:18vh;
-  
-   justify-content: center;
-    
-}
-.prsignup>form>input{
-    border:none;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    border-radius: 5px;
-    width:18vw;
-    height:6vh;
-    margin-bottom: 2vh;
-    text-align: center;
-}
-.prsignup>div{
-    /* border:1px solid green; */
-    width:18vw;
-    height:7vh;
-}
-.prsignup>form>button{
-    border:1px solid black;
-    border-radius: 5px;
-    width:18vw;
-    height:7vh;
-}
-.prlogin>form
-{    display:grid;
-    height:18vh;
-  
-   justify-content: center;
-    
-}
-.prlogin>form>input{
-    border:none;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    border-radius: 5px;
-    width:18vw;
-    height:6vh;
-    margin-bottom: 2vh;
-    text-align: center;
+.prlogin > form > input {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border-radius: 5px;
+  width: 18vw;
+  height: 6vh;
+  margin-bottom: 2vh;
+  text-align: center;
 }
 
-.prlogin>form>input::placeholder{
-    text-align: center;
+.prlogin > form > input::placeholder {
+  text-align: center;
 }
 
-.prsignup>form>input::placeholder{
-    text-align: center;
+.prsignup > form > input::placeholder {
+  text-align: center;
 }
 
-
-
-.signupbtn
-{
-    background-color:black;
-    color:white;
-    margin-top:1vh;
-    cursor:pointer;
-    opacity:80%;
+.signupbtn {
+  background-color: black;
+  color: white;
+  margin-top: 1vh;
+  cursor: pointer;
+  opacity: 80%;
 }
 .signupbtn:hover {
-  
-    opacity:100%;
+  opacity: 100%;
 }
 
-.loginbtn
-{
-    background-color: black;
-    border-radius: 5px;
-    color: white;
-    width: 200px;
-    margin-top: 2%;
-    height: 50px;
-    border-style: none;
-    text-align: center;
-   /* background-color:black;
+.loginbtn {
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  width: 200px;
+  margin-top: 2%;
+  height: 50px;
+  border-style: none;
+  text-align: center;
+  /* background-color:black;
    color:white;
    cursor:pointer;
     opacity:80%;
@@ -162,152 +142,124 @@
    
     margin-left: 33%; */
 }
-.signup{
-            
-
-    /* height: 100px; */
-
+.signup {
+  /* height: 100px; */
 }
-.term{
-   text-decoration: underline;
-   color:#1d252c
+.term {
+  text-decoration: underline;
+  color: #1d252c;
 }
 .loginbtn:hover {
-  
-    opacity:100%;
+  opacity: 100%;
 }
-.termsandcondition
-{
-    display:grid;
-    margin-top:5px
+.termsandcondition {
+  display: grid;
+  margin-top: 5px;
 }
-.termsandcondition>span
-{
-   width:18vw;
+.termsandcondition > span {
+  width: 18vw;
 }
-.signuporlogin
-{
-   font-size: small;
-   font-weight: 600;
-   padding-left:20px
+.signuporlogin {
+  font-size: small;
+  font-weight: 600;
+  padding-left: 20px;
 }
 
-@media (max-width:800px)
-{
-    .prleftdiv
-{
-    display:none
+@media (max-width: 800px) {
+  .prleftdiv {
+    display: none;
     /* height:100vh;
     width:50%;
     background-color: #1d252c; */
-}
-.prrightdiv
-{
-    
-
-    width:80%;
-    margin-left:50%;
+  }
+  .prrightdiv {
+    width: 80%;
+    margin-left: 50%;
     text-align: center;
     /* padding-top: 10vh; */
-   
-}
-.rightform{
-      
+  }
+  .rightform {
+  }
 
-}
+  .prbuttondiv {
+    height: 25vh;
 
-.prbuttondiv
-{   
-     height:25vh;
-   
     justify-content: center;
-    margin-top: 5vh;
-    
-}
-.prbuttondiv>button
-{
-
-    border:none;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    margin-top: 4vh;
+  }
+  .prbuttondiv > button {
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border-radius: 5px;
-    width:40vw;
-    height:auto;
-    display:flex;
+    width: 40vw;
+    height: auto;
+    display: flex;
     justify-content: space-between;
     font-size: large;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
     /* background-color: yellow; */
-}
-.prbuttondiv>button>img
-{
-
+  }
+  .prbuttondiv > button > img {
     /* border:1px solid blue; */
     /* box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px; */
     border-radius: 5px;
-    width:10%;
-    height:6vh;
-    display:flex;
+    width: 10%;
+    height: 6vh;
+    display: flex;
     justify-content: space-between;
-}
-.prbuttondiv>button>span
+  }
+  /* .prbuttondiv>button>span
 {
     border-radius: 5px;
     width:80%;
     height:6vh;
     display:flex;
     justify-content: space-between;
-}
-.prsignup{
-  
-    height:40vh;
+} */
+  .prsignup {
+    height: 40vh;
     font-size: medium;
     font-weight: 600;
-}
-.prlogin{
+  }
+  .prlogin {
     /* border:1px solid blue; */
-    height:40vh;
+    height: 40vh;
     font-size: small;
     margin-top: 5vh;
     font-weight: 600;
-}
-.prsignup>form
-{    display:grid;
-    height:18vh;
-    
-   justify-content: center;
-    
-}
-.prsignup>form>input{
-    border:none;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  }
+  .prsignup > form {
+    display: grid;
+    height: 18vh;
+
+    justify-content: center;
+  }
+  .prsignup > form > input {
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border-radius: 5px;
-    width:40vw;
-    height:6vh;
+    width: 40vw;
+    height: 6vh;
     margin-bottom: 2vh;
     text-align: center;
-}
-.termsandcondition
-{
-    display:grid;
-    margin-top:5px;
-   
-   
-}
-.termsandcondition>span
-{
-   width:100%;
-  
-   
-}
+  }
+  .termsandcondition {
+    display: grid;
+    margin-top: 5px;
+  }
+  .termsandcondition > span {
+    width: 100%;
+  }
 
-.prlogin>form
-{    display:grid;
-    height:18vh;
-  
-   justify-content: center;
-    
-}
-/* .prlogin>form>input{
+  .prlogin > form {
+    display: grid;
+    height: 18vh;
+
+    justify-content: center;
+  }
+  /* .prlogin>form>input{
     border:none;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border-radius: 5px;
@@ -317,47 +269,40 @@
     text-align: center;
 } */
 
-.prlogin>form>input::placeholder{
+  .prlogin > form > input::placeholder {
     text-align: center;
-}
+  }
 
-.prsignup>form>input::placeholder{
+  .prsignup > form > input::placeholder {
     text-align: center;
-}
+  }
 
-
-.prlogin>form>button{
-    border:1px solid black;
+  .prlogin > form > button {
+    border: 1px solid black;
     border-radius: 5px;
-    width:40vw;
-    height:7vh;
-}
-.signupbtn
-{
-    background-color:black;
-    color:white;
-    margin-top:1vh;
-    cursor:pointer;
-    opacity:80%;
-}
-.signupbtn:hover {
-  
-    opacity:100%;
-}
+    width: 40vw;
+    height: 7vh;
+  }
+  .signupbtn {
+    background-color: black;
+    color: white;
+    margin-top: 1vh;
+    cursor: pointer;
+    opacity: 80%;
+  }
+  .signupbtn:hover {
+    opacity: 100%;
+  }
 
-
-.loginbtn:hover {
-  
-    opacity:100%;
+  .loginbtn:hover {
+    opacity: 100%;
+  }
 }
 
-}
-
-.newsignup{
-cursor:pointer;
-text-decoration: underline;
-margin-top:10px;
-color:black;
-margin-bottom:2vh;
-
+.newsignup {
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 10px;
+  color: black;
+  margin-bottom: 2vh;
 }

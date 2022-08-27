@@ -3,22 +3,45 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const BlogsNavbar = () => {
-  const [tabIndex, setTabIndex] = React.useState(0);
+  const param = window.location.pathname;
   return (
-    <Tabs index={tabIndex} onChange={(index) => setTabIndex(index)}>
+    <Tabs variant="unstyled">
       <Flex
-        align="center"
-        justify="center"
+        justify={{
+          base: "start",
+          sm: "start",
+          md: "center",
+          lg: "center",
+          xl: "center",
+          "2xl": "center",
+        }}
         gap={5}
         overflow="scroll"
+        whiteSpace="nowrap"
         position="fixed"
         zIndex={1}
         bg="white"
         w="100%"
-        sx={{ "::-webkit-scrollbar": { display: "none" } }}
+        sx={{
+          "::-webkit-scrollbar": {
+            h: "5px",
+            w: "0",
+            borderRadius: "8px",
+            bg: `RGBA(0, 0, 0, 0.36)`,
+            display: {
+              base: "block",
+              sm: "block",
+              md: "none",
+              lg: "none",
+              xl: "none",
+              "2xl": "none",
+            },
+          },
+        }}
       >
         <Link to="/blog">
           <Tab
+            borderBottom={param === "/blog" ? "2px solid #01c3a9" : ""}
             letterSpacing="1px"
             fontSize="0.8rem"
             fontWeight={600}
@@ -33,6 +56,7 @@ const BlogsNavbar = () => {
 
         <Link to="/productivity">
           <Tab
+            borderBottom={param === "/productivity" ? "2px solid #01c3a9" : ""}
             letterSpacing="1px"
             fontSize="0.8rem"
             fontWeight={600}
@@ -47,6 +71,7 @@ const BlogsNavbar = () => {
 
         <Link to="/remote-work">
           <Tab
+            borderBottom={param === "/remote-work" ? "2px solid #01c3a9" : ""}
             letterSpacing="1px"
             fontSize="0.8rem"
             fontWeight={600}
@@ -61,6 +86,7 @@ const BlogsNavbar = () => {
 
         <Link to="/best-practice">
           <Tab
+            borderBottom={param === "/best-practice" ? "2px solid #01c3a9" : ""}
             letterSpacing="1px"
             fontSize="0.8rem"
             fontWeight={600}
@@ -75,6 +101,7 @@ const BlogsNavbar = () => {
 
         <Link to="/resources">
           <Tab
+            borderBottom={param === "/resources" ? "2px solid #01c3a9" : ""}
             letterSpacing="1px"
             fontSize="0.8rem"
             fontWeight={600}

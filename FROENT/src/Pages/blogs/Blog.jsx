@@ -4,9 +4,15 @@ import { blogsData } from "../../utils/BlogsData";
 import BlogsNavbar from "../../Components/BlogsNavbar";
 import BlogsLayout from "../../Components/BlogsLayout";
 import BlogsHeadBox from "../../Components/BlogsHeadBox";
+import { useEffect } from "react";
 
 const Blog = () => {
   const headingText = "TIMEKEEPING AND PRODUCTIVITY ARTICLES";
+  useEffect(() => {
+    const title =
+      "Blog Archives - Trakcing Time - Read it and learn more about us!";
+    document.title = title;
+  }, []);
   return (
     <Box top="68" position="relative">
       <BlogsNavbar />
@@ -22,16 +28,15 @@ const Blog = () => {
         }}
         gap={4}
         p={{
-          base: "1rem 1.5rem",
-          sm: "1rem 1.5rem",
-          md: "1rem 0.5rem",
-          lg: "1rem 6rem",
-          xl: "1rem 10rem",
-          "2xl": "1rem 10rem",
+          base: "1rem 1.5rem 20rem 1.5rem",
+          sm: "1rem 1.5rem 20rem 1.5rem",
+          md: "1rem 0.5rem 20rem 0.5rem",
+          lg: "1rem 6rem 20rem 6rem",
+          xl: "1rem 10rem 20rem 10rem",
+          "2xl": "1rem 10rem 20rem 10rem",
         }}
         top={70}
         position="relative"
-        pb="15rem"
       >
         <BlogsLayout data={blogsData} />
       </Grid>

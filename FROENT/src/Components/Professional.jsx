@@ -18,9 +18,12 @@ import {
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  delete_Professional_task,
   professionalAddTaskApi,
   professionalTaskApi,
+  update_professional_task,
 } from "../taskreducer/action";
+import Textname from "./Textname";
 
 const Professional = () => {
   const dispatch = useDispatch();
@@ -115,29 +118,7 @@ const Professional = () => {
       </Flex>
       {Professional_task.map((el, i) => {
         return (
-          <Box
-            key={i}
-            size="lg"
-            bg="whitesmoke"
-            h="5rem"
-            _hover={{
-              bg: "#eaeaea",
-            }}
-            borderRadius="1rem"
-            w="20rem"
-          >
-            <Text
-              m="3"
-              pl="3"
-              p="1"
-              cursor="pointer"
-              _hover={{
-                bg: "#eaeaea",
-              }}
-            >
-              {el.task_name}
-            </Text>
-          </Box>
+           <Textname update={update_professional_task} deleted={delete_Professional_task} data={el} key={i} index={i} />
         );
       })}
       <Drawer onClose={onClose} isOpen={isOpen} size={"md"}>

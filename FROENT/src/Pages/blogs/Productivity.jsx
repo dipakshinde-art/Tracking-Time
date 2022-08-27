@@ -1,5 +1,5 @@
 import { Box, Grid } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import BlogsHeadBox from "../../Components/BlogsHeadBox";
 import BlogsLayout from "../../Components/BlogsLayout";
 import BlogsNavbar from "../../Components/BlogsNavbar";
@@ -8,6 +8,10 @@ import { productivityData } from "../../utils/BlogsData";
 const Productivity = () => {
   const headingText =
     "PRODUCTIVITY ARTICLES TO HELP YOU INCREASE PRODUCTIVITY AT WORK.";
+  useEffect(() => {
+    const title = "Productivity | Tracking Time";
+    document.title = title;
+  }, []);
 
   return (
     <Box top="68" position="relative">
