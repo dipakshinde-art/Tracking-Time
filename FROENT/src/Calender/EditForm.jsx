@@ -29,33 +29,49 @@ export default function EditForm({ id }) {
   const [startTime, setStartTime] = useState("");
   const [endTime, setendTime] = useState("");
   const [date, setCreateDate] = useState("");
-  const [img, setFile] = useState("");
+
   const [Title, setTitle] = useState("");
   const [Note, setNote] = useState("");
 
-  const getOneNote = () => {
-   // console.log("in onenote ",id)
+  const HandleUpdate = () => {
+    let payload = {
+      Title,
+      Note,
+    };
+    axios
+      .patch(`http://localhost:5000/note/edit/${id}`, payload)
+      .then((responce) => {
+        //  console.log(responce);
+        window.location.reload(false);
+        alert("NOTE Updated");
+      });
+  };
+  const handleEdit = () => {
+    // console.log("editform id", id);
     axios.get(`http://localhost:5000/note/info/${id}`).then((responce) => {
-      console.log(responce)
+      //console.log(responce.data.note);
+      if (responce.data.note) {
+        setTitle(responce.data.note.Title);
+        setNote(responce.data.note.Note);
+        setStartTime(responce.data.note.createdate);
+      }
     });
   };
-  useEffect(() => {
-    getOneNote();
-  }, [id]);
 
   const handleDelete = () => {
-    // console.log("editform id", id);
+   // console.log("deleteform id", id);
     axios
       .delete(`http://localhost:5000/note/delete/${id}`)
       .then((response) => {
         alert("Deleted");
         // console.log(response.data);
+        window.location.reload(false);
         // navigate("/note/list", { replace: true });
       })
       .catch((err) => alert("Not ABle to Delete"));
   };
   return (
-    <Box mt="10px">
+    <Box mt="10px" onClick={() => handleEdit()}>
       <PopoverArrow />
       <PopoverCloseButton />
       <PopoverHeader>
@@ -70,6 +86,7 @@ export default function EditForm({ id }) {
             height="4em"
             ml="4"
             mb="4"
+            value={Title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <HStack ml="4" mb="4">
@@ -112,6 +129,7 @@ export default function EditForm({ id }) {
               height="4em"
               ml="4"
               mb="4"
+              value={Note}
               onChange={(e) => setNote(e.target.value)}
             />
           </InputGroup>
@@ -124,10 +142,7 @@ export default function EditForm({ id }) {
           <div className={styles.add_file_inline}>
             <div className={styles.input_inline_style}>
               <label>Attachment</label>
-              <input
-                className={styles.input_button}
-                onChange={(e) => setFile(e.target.value)}
-              />
+              <input className={styles.input_button} />
             </div>
           </div>
 
@@ -159,6 +174,7 @@ export default function EditForm({ id }) {
               color="white"
               size="sm"
               p="20px 40px"
+              onClick={() => HandleUpdate()}
             >
               SAVE
             </Button>

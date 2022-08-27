@@ -7,7 +7,7 @@ import {
 import thunk from "redux-thunk";
 import { taskReducer } from "../taskreducer/taskReducer";
 
-const rootReducer = combineReducers({ task:taskReducer });
+const rootReducer = combineReducers({ task: taskReducer });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

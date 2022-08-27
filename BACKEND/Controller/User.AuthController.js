@@ -1,25 +1,57 @@
-const {Router} =require("express")
-const User=require("../Model/AuthModel")
-const authRouter=Router()
+const { Router } = require("express")
+const User = require("../Model/AuthModel")
+const authRouter = Router()
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt')
 
-authRouter.post("/signup",(req,res)=>{
-    const user=new User(req.body);
-    user.save((err,success)=>{
-        if(err){
-            return res.status(500).send({message:"error occored"})
+
+authRouter.post("/signup", async (req, res) => {
+    let { email, password } = req.body;
+
+    console.log(req.body)
+    await bcrypt.hash(password, 8, function (err, hash) {
+        if (err) {
+            return res.send("Invalide password");
         }
-        return res.status(201).send({message:"signup successfully",user:success["_doc"]})
-    })
+        const userInfo = new User({
+            email,
+            password: hash,
+
+        });
+        userInfo.save();
+    });
+    return res.status(201).send("Signup Success");
 
 })
-authRouter.post("/login",async(req,res)=>{
-    const {username,password}=req.body;
-    const validUser=await User.find({username,password})
-    if(validUser.length<1){
-        return res.status(401).send({message:"invalid credentials"})
+authRouter.post("/login", async (req, res) => {
+
+    let { email, password } = req.body;
+
+    const userInfo = await User.findOne({ email });
+    const hash_pass = userInfo.password;
+
+    console.log({ "userInfo": userInfo })
+    if (!userInfo) {
+        return res.send("Invalide connections");
     }
-    return res.send(validUser)
-u
+
+    await bcrypt.compare(password, hash_pass, function (err, result) {
+        if (err) {
+            return res.send("try again");
+        }
+        if (result) {
+            const token = jwt.sign(
+                { email: userInfo.email, _id: userInfo._id },
+                "secret",
+                // { expiresIn: "1hr" }
+            );
+            console.log(token)
+            return res.send({ message: "Login Success", token: token });
+        } else {
+            return res.send("Invalide connections");
+        }
+    });
+
 })
 
-module.exports=authRouter;
+module.exports = authRouter;
