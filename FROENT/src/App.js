@@ -15,7 +15,7 @@ import Resources from "./Pages/blogs/Resources";
 function App() {
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Landingpage />} />
         <Route path="/project" element={<Projects />} />
