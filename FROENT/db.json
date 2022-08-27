@@ -63,6 +63,13 @@
       "task_completed": false,
       "task_details": "tommorwow",
       "id": 5
+    },
+    {
+      "task_name": "IAS",
+      "sub_task": [],
+      "task_completed": false,
+      "task_details": "",
+      "id": 6
     }
   ],
   "Personal": [
@@ -131,7 +138,7 @@
           "sub_task_status": false
         }
       ],
-      "task_completed": false,
+      "task_completed": true,
       "task_details": "today is running day",
       "id": 2
     }
