@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const port = process.env.PORT || 5000;
+const authRouter=require("./Controller/User.AuthController")
 app.use(express.json());
 app.use(cors());
 require('dotenv').config()
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 
 app.use("/note", noteRouter);
 //port 1234 
+app.use("/auth",authRouter)
 app.listen(port, async () => {
     try {
         await connection;
