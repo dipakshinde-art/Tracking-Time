@@ -37,3 +37,33 @@ export const ADD_PERSONAL_TASK_ERROR = 'add_personal_task/error'
 export const ADD_OTHERS_TASK_LOADING = 'add_others_task/loading'
 export const ADD_OTHERS_TASK_SUCCESS = 'add_others_task/success'
 export const ADD_OTHERS_TASK_ERROR = 'add_others_task/error'
+
+
+export const UPDATE_OTHERS_TASK_LOADING = 'update_others_task/loading'
+export const UPDATE_OTHERS_TASK_SUCCESS = 'update_others_task/success'
+export const UPDATE_OTHERS_TASK_ERROR = 'update_others_task/error'
+
+
+
+export const UPDATE_PROFESSIONAL_TASK_LOADING = 'update_professional_task/loading'
+export const UPDATE_PROFESSIONAL_TASK_SUCCESS = 'update_professional_task/success'
+export const UPDATE_PROFESSIONAL_TASK_ERROR = 'update_professional_task/error'
+
+
+export const UPDATE_PERSONAL_TASK_LOADING = 'update_personal_task/loading'
+export const UPDATE_PERSONAL_TASK_SUCCESS = 'update_personal_task/success'
+export const UPDATE_PERSONAL_TASK_ERROR = 'update_personal_task/error'
+
+
+export const DELETE_OTHERS_TASK_LOADING = 'delete_others_task/loading'
+export const DELETE_OTHERS_TASK_SUCCESS = 'delete_others_task/success'
+export const DELETE_OTHERS_TASK_ERROR = 'delete_others_task/error'
+
+
+export const DELETE_PROFESSIONAL_TASK_LOADING = 'delete_professional_task/loading'
+export const DELETE_PROFESSIONAL_TASK_SUCCESS = 'delete_professional_task/success'
+export const DELETE_PROFESSIONAL_TASK_ERROR = 'delete_professional_task/error'
+
+export const DELETE_PERSONAL_TASK_LOADING = 'delete_personal_task/loading'
+export const DELETE_PERSONAL_TASK_SUCCESS = 'delete_personal_task/success'
+export const DELETE_PERSONAL_TASK_ERROR = 'delete_personal_task/error'

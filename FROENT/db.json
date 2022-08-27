@@ -103,22 +103,6 @@
       "id": 3
     },
     {
-      "task_name": "yuyuyu",
-      "sub_task": [
-        {
-          "subTask": "xfcxcx",
-          "sub_task_status": false
-        },
-        {
-          "subTask": "xfcxcx",
-          "sub_task_status": false
-        }
-      ],
-      "task_completed": false,
-      "task_details": "jijij",
-      "id": 4
-    },
-    {
       "task_name": "keeping",
       "sub_task": [],
       "task_completed": false,
@@ -150,57 +134,17 @@
       "task_completed": false,
       "task_details": "today is running day",
       "id": 2
-    },
-    {
-      "task_name": "jogging",
-      "sub_task": [
-        {
-          "subTask": "dfgd",
-          "sub_task_status": false
-        }
-      ],
-      "task_completed": true,
-      "task_details": "thif",
-      "id": 3
-    },
-    {
-      "task_name": "yuyuyu",
-      "sub_task": [
-        {
-          "subTask": "xfcxcx",
-          "sub_task_status": false
-        },
-        {
-          "subTask": "xfcxcx",
-          "sub_task_status": false
-        }
-      ],
-      "task_completed": false,
-      "task_details": "jijij",
-      "id": 4
-    },
-    {
-      "task_name": "keeping",
-      "sub_task": [
-        {
-          "subTask": "just do it",
-          "sub_task_status": false
-        }
-      ],
-      "task_completed": true,
-      "task_details": "doing",
-      "id": 5
     }
   ],
   "Others": [
     {
       "id": 1,
-      "task_name": "test 1",
+      "task_name": "test 11",
       "task_details": "this is testing",
       "task_completed": false,
       "sub_task": [
         {
-          "subTask": "sub-task",
+          "subTask": "sub-task 22",
           "sub_task_status": false
         }
       ]
@@ -216,46 +160,6 @@
       "task_completed": false,
       "task_details": "today is running day",
       "id": 2
-    },
-    {
-      "task_name": "jogging",
-      "sub_task": [
-        {
-          "subTask": "dfgd",
-          "sub_task_status": false
-        }
-      ],
-      "task_completed": true,
-      "task_details": "thif",
-      "id": 3
-    },
-    {
-      "task_name": "yuyuyu",
-      "sub_task": [
-        {
-          "subTask": "xfcxcx",
-          "sub_task_status": false
-        },
-        {
-          "subTask": "xfcxcx",
-          "sub_task_status": false
-        }
-      ],
-      "task_completed": false,
-      "task_details": "jijij",
-      "id": 4
-    },
-    {
-      "task_name": "keeping",
-      "sub_task": [
-        {
-          "subTask": "sdf",
-          "sub_task_status": false
-        }
-      ],
-      "task_completed": false,
-      "task_details": "",
-      "id": 5
     }
   ]
 }
