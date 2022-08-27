@@ -3,6 +3,8 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import Broad from './Broad';
 import List from './List'
+import Notescreate from './Notescreate';
+import Shownotes from './Shownotes';
 
 const Content = () => {
 
@@ -10,7 +12,7 @@ const Content = () => {
     useEffect(() => {
       
     
-      console.log(change)
+    //   console.log(change)
      
     }, [change])
     
@@ -20,20 +22,12 @@ const Content = () => {
     else if(change === "Board"){
         return <Broad />
     }
-    else if(change === "Timeline"){
-        return <Box>
-            Timeline
-        </Box>
-    }
-    else if(change === "Report"){
-        return <Box>
-            Report
-        </Box>
+   
+    else if(change === "Note"){
+        return <Notescreate />
     }
     else if(change === "Notes"){
-        return <Box>
-            Notes
-        </Box>
+        return <Shownotes />
     }
  
 }

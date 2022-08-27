@@ -12,6 +12,7 @@ import {
   Input,
   Text,
   Textarea,
+  Tooltip,
   useDisclosure,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
@@ -74,6 +75,7 @@ const Personal = () => {
   const handleSubmit = () => {
     // console.log(task);
       dispatch(personalAddTaskApi(task))
+      onClose();
   };
   const handleShow = () => {
     if (show == false && task.task_name) {
@@ -91,7 +93,7 @@ const Personal = () => {
     Personal_task = Personal_task;
   }
   const dispatch = useDispatch();
-//   console.log(Personal_task);
+  // console.log(Personal_task[0]._id);
   useEffect(() => {
     if (Personal_task.length === 0) dispatch(personalTaskApi());
   }, [Personal_task.length]);
@@ -108,12 +110,14 @@ const Personal = () => {
       >
         Personal
         <Box onClick={() => onOpen()}>
+        <Tooltip hasArrow label='Add task' bg='gray.300' color='black'>
           <AddIcon />
+          </Tooltip>
         </Box>
       </Flex>
       {Personal_task.map((el, i) => {
         return (
-          <Textname update={update_personal_task} deleted={delete_Personal_task} data={el} key={i} index={i} />
+          <Textname update={update_personal_task} deleted={delete_Personal_task} data={el} key={i} index={el._id} />
         );
       })}
 

@@ -7,7 +7,14 @@ import Professional from "./Professional";
 
 const Broad = () => {
   return (
-    <Flex>
+    <Flex direction={{
+      base:"column",
+      sm: "column",
+      md: "column",
+      lg: "row",
+      xl: "row",
+
+    }}>
       <Box m="2">
         <BoardList />
       </Box>

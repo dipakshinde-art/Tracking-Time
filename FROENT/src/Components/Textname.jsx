@@ -28,7 +28,8 @@ const Textname = ({ data,index,update,deleted }) => {
   const [subtaskvalue, Setsubtaskvalue] = useState("");
     const dispatch = useDispatch()
 
- 
+//  console.log(data)
+
   const [task, Settask] = useState({
     task_name: data.task_name,
     sub_task: data.sub_task,
@@ -37,7 +38,7 @@ const Textname = ({ data,index,update,deleted }) => {
   });
 
   const handleUpdate = () => {
-    console.log(data);
+    // console.log(data);
     onOpen();
   };
   const handelSub = () => {
