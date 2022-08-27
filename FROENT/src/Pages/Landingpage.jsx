@@ -1,11 +1,11 @@
 
-
-
 import React from 'react'
 import css from './Landing.module.css';
 import { Button, Input, Text, Image } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom';
 
 const Landingpage = () => {
+  const nav = useNavigate();
   return (
     <div className={css.main}>
       <div className={css.head}>
@@ -22,48 +22,48 @@ const Landingpage = () => {
 
       <div className={css.btn}>
 
-      <div className={css.btn} >
+        <div className={css.btn} >
 
-        <Input
-          w="265px"
-          h="40px"
-          textColor="black"
-          textAlign="center"
+          <Input
+            w="265px"
+            h="40px"
+            textColor="black"
+            textAlign="center"
 
-          _placeholder={{ opacity: 1, color: 'black' }}
-          borderColor="black"
-          color='black'
-          placeholder='Your work Email' />
+            _placeholder={{ opacity: 1, color: 'black' }}
+            borderColor="black"
+            color='black'
+            placeholder='Your work Email' />
 
-        <Button
-          bgColor="#00AD95"
-          color="white"
-          w="210px"
-          h="40px"
+          <Button
+            bgColor="#00AD95"
+            color="white"
+            w="210px"
+            h="40px"
 
 
-          _hover={{ bgColor: "#00AD95" }}>
+            _hover={{ bgColor: "#00AD95" }}>
 
-          START FOR FREE!
-        </Button>
-      </div>
-      <div className={css.tt_logo}>
-        <div>
+            START FOR FREE!
+          </Button>
+        </div>
+        <div className={css.tt_logo}>
+          <div>
+            <img
+              src="https://trackingtime.co/wp-content/themes/trackingtime-v4/img/keywords/google-key.png"
+
+              alt=""
+            />
+            <a href="">
+              <h3>Sign in with Google</h3>
+            </a>
+          </div>
           <img
-            src="https://trackingtime.co/wp-content/themes/trackingtime-v4/img/keywords/google-key.png"
-
+            src="https://trackingtime.co/wp-content/themes/trackingtime-v4/img/layout/header/ilus-header-2.svg"
             alt=""
           />
-          <a href="">
-            <h3>Sign in with Google</h3>
-          </a>
-        </div>
-        <img
-          src="https://trackingtime.co/wp-content/themes/trackingtime-v4/img/layout/header/ilus-header-2.svg"
-          alt=""
-        />
 
-           
+
           <a
             href="">
             <h3>Sign in with Google</h3>
@@ -146,7 +146,7 @@ const Landingpage = () => {
         <div>
           <Text fontSize="18px" fontWeight="extrabold">THE FEATURES YOUR PROJECT MANAGEMENT APP IS MISSING.</Text>
         </div>
-        <div>
+        <div >
           <div className={css.fea_grid}>
             <div>
               <Image src='https://trackingtime.co/wp-content/themes/trackingtime-v4/img/keywords/article-1.svg' />
@@ -191,7 +191,7 @@ const Landingpage = () => {
           <div className={css.addchild2}>
             <p>No matter where your employees work, TrackingTime works with them. Install the TrackingTime Button for Chrome and Firefox and track time right within the productivity apps your employees use everyday.</p>
           </div>
-          <Button _hover={{ bgColor: 'black', color: "white" }} variant="outline" colorScheme='black' border="2px" w='140px' h='36px' fontSize='11px' fontWeight="extrabold" letterSpacing="2px">SEE ALL</Button>
+          <Button _hover={{ bgColor: 'black', color: "white" }} variant="outline" colorScheme='black' border="2px" w='140px' h='36px' fontSize='11px' fontWeight="extrabold" letterSpacing="2px" onClick={() => nav('/integration')}>SEE ALL</Button>
         </div>
         <div className={css.apps}>
           <div>
@@ -257,7 +257,7 @@ const Landingpage = () => {
               borderColor="black"
               color='black'
               placeholder='Your work Email' />
-            <Button
+            <Button className={css.cbtn}
               bgColor="#00AD95"
               color="white"
               w="210px"
@@ -267,14 +267,14 @@ const Landingpage = () => {
             </Button>
           </div>
           <div className={css.glogo}>
-              <img
-                src="https://trackingtime.co/wp-content/themes/trackingtime-v4/img/keywords/google-key.png"
-                alt="" />
-              <a
-                href="">
-                <h3>Sign in with Google</h3>
-              </a>
-            </div>
+            <img
+              src="https://trackingtime.co/wp-content/themes/trackingtime-v4/img/keywords/google-key.png"
+              alt="" />
+            <a
+              href="/signup">
+              <h3>Sign in with Google</h3>
+            </a>
+          </div>
         </div>
 
       </div>
