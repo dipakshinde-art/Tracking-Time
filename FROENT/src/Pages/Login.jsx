@@ -28,33 +28,40 @@ export const Login = () => {
   };
 
   //auth
-  const [formData, setformDate] = useState({});
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const nav = useNavigate();
 
-  const handleChange = (e) => {
-    const { value, name } = e.target;
-    setformDate({
-      ...formData,
-      [name]: value,
-    });
-  };
-  const handlelogin = async (e) => {
-    try {
-      e.preventDefault();
-      // console.log(formData)
-      const { data } = await axios.post(
-        "http://localhost:5000/auth/login",
-        formData
-      );
-      const user = data[0];
-      localStorage.setItem("userid", user["_id"]);
-      // console.log(data[0]);
-      nav("/");
-    } catch (err) {
-      if (err.response.status === 401) {
-        alert("invaild user ");
-      }
-    }
+  const handlelogin = (e) => {
+    e.preventDefault();
+    let payload = {
+      email,
+      password,
+    };
+
+    axios
+      .post("http://localhost:5000/auth/login", payload)
+      .then((response) => {
+        console.log("toke", response.data.token);
+        localStorage.setItem("token", response.data.token);
+        nav("/dashboard", { replace: true });
+      })
+      .catch((err) => alert("Plese Try Again. Some Field Missing"));
+    // try {
+    //   e.preventDefault();
+    //   // console.log(formData)
+    //   axios.post("http://localhost:5000/auth/login", payload);
+    //   const user = data[0];
+    //   console.log(user);
+    //   localStorage.setItem("userid", user["_id"]);
+    //   // console.log(data[0]);
+
+    //   nav("/");
+    // } catch (err) {
+    //   if (err.response.status === 401) {
+    //     alert("invaild user ");
+    //   }
+    // }
   };
 
   return (
@@ -114,8 +121,8 @@ export const Login = () => {
                 type="email"
                 w="16rem"
                 placeholder="Email"
-                onChange={handleChange}
-                name="username"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <br />
               <br />
@@ -130,7 +137,8 @@ export const Login = () => {
                 w="16rem"
                 placeholder="Password"
                 name="password"
-                onChange={handleChange}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               {/* <Input placeholder='Basic usage' /> */}
 

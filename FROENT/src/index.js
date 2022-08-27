@@ -14,16 +14,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ChakraProvider>
     <BrowserRouter>
-
-     <StateProvider initialState={initialState} reducer={reducer}>
-      <Provider store={store}>
-        <App />
-      </Provider>
-
-     </StateProvider>
-     </BrowserRouter>
-
-      
-
+      <StateProvider initialState={initialState} reducer={reducer}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </StateProvider>
+    </BrowserRouter>
   </ChakraProvider>
 );

@@ -6,7 +6,11 @@ import WithSubnavigation from "../../Components/Navbar/Navbar";
 const Dashboard = () => {
   return (
     <>
-      <Box py={{ base: 2 }} px={{ base: 4 }}>
+      <Box
+        py={{ base: 2 }}
+        px={{ base: 4 }}
+        width={["15%", "25%", "50%", "100%"]}
+      >
         <WithSubnavigation />
       </Box>
 
