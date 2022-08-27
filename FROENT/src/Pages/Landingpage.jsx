@@ -1,78 +1,54 @@
 
 import React from 'react'
 import css from './Landing.module.css';
-import { Button, Input, Text, Image } from '@chakra-ui/react'
+import { Box, Button, Input, Text, Image, Flex } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom';
 
 const Landingpage = () => {
   const nav = useNavigate();
   return (
     <div className={css.main}>
-      <div className={css.head}>
-        <div>
-          <h1>TRACKINGTIME TIME TRACKER SOFTWARE</h1>
-        </div>
-        <div>
-          <h2>SET AND FORGET TIME TRACKING</h2>
-        </div>
-        <div>
-          <h4>Bring your productivity to the next level.</h4>
-        </div>
-      </div>
-
-      <div className={css.btn}>
-
-        <div className={css.btn} >
-
+      <Box w="60%" margin="auto" textAlign='center' lineHeight="50px" marginTop="90px" >
+        <Text fontSize={{ base: "11px", sm: '15px', md: '15px', lg: "11px" }} letterSpacing="2px" fontWeight="bold" color="#00AD95">TRACKINGTIME TIME TRACKER SOFTWARE</Text>
+        <Text fontSize={{ base: "20px", sm: '18px', lg: "16px" }} letterSpacing="2px" fontWeight="900" >SET AND FORGET TIME TRACKING</Text>
+        <Text fontSize="65px" lineHeight="70px" letterSpacing="2px" fontWeight="700" >Bring your productivity to the next level.</Text>
+      </Box>
+      <Flex margin="20px 0 0 0 " width="100%" flexDirection={{ base: "column", sm: "column", md: "column", lg: "row" }} gap="20px" justifyContent="center" alignItems="center">
+        <Box>
           <Input
-            w="265px"
-            h="40px"
+            w={{ base: "265px", sm: "900px", md: "700px", lg: "265px" }}
+            h={{ base: "40px", sm: "70px", md: "60px", lg: "40px" }}
             textColor="black"
-            textAlign="center"
-
-            _placeholder={{ opacity: 1, color: 'black' }}
+            _placeholder={{ opacity: 1, color: 'black',textAlign:'center' }}
             borderColor="black"
             color='black'
             placeholder='Your work Email' />
-
+        </Box>
+        <Box>
           <Button
             bgColor="#00AD95"
             color="white"
-            w="210px"
-            h="40px"
-
-
+            fontSize="13px"
+            letterSpacing='2px'
+            w={{ base: "255px", sm: "900px", md: "700px", lg: "200px" }}
+            h={{ base: "40px", sm: "70px", md: "60px", lg: "40px" }}
             _hover={{ bgColor: "#00AD95" }}>
-
             START FOR FREE!
           </Button>
-        </div>
-        <div className={css.tt_logo}>
-          <div>
-            <img
-              src="https://trackingtime.co/wp-content/themes/trackingtime-v4/img/keywords/google-key.png"
-
-              alt=""
-            />
-            <a href="">
-              <h3>Sign in with Google</h3>
-            </a>
-          </div>
-          <img
-            src="https://trackingtime.co/wp-content/themes/trackingtime-v4/img/layout/header/ilus-header-2.svg"
-            alt=""
-          />
-
-
-          <a
-            href="">
-            <h3>Sign in with Google</h3>
-          </a>
-        </div>
-        <img
-          src="https://trackingtime.co/wp-content/themes/trackingtime-v4/img/layout/header/ilus-header-2.svg"
-          alt="" />
-      </div>
+        </Box>
+      </Flex>
+      <Flex justifyContent="center" gap="13px" alignItems="center" margin="30px 0 0 0">
+        <Image
+          w="21px"
+          h="21px"
+          src="https://trackingtime.co/wp-content/themes/trackingtime-v4/img/keywords/google-key.png"
+          alt=""
+        />
+        <Text fontSize="13px" textDecoration="underline" fontWeight="bold" _hover={{ color: "#00AD95" }}><a href="">Sign in with Google</a></Text>
+      </Flex>
+      <Box w="90%" h="90%" margin='auto'>
+        <Image  objectFit="contain" objectPosition="-150px" src='https://trackingtime.co/wp-content/themes/trackingtime-v4/img/layout/header/ilus-header-2.svg'/>
+      </Box>
       <div className={css.slider_outer}>
         <div
           className={css.slider}>
