@@ -1,6 +1,10 @@
+
+
+
 import React from 'react'
 import css from './Landing.module.css';
 import { Button, Input, Text, Image } from '@chakra-ui/react'
+
 const Landingpage = () => {
   return (
     <div className={css.main}>
@@ -15,22 +19,31 @@ const Landingpage = () => {
           <h4>Bring your productivity to the next level.</h4>
         </div>
       </div>
+
+      <div className={css.btn}>
+
       <div className={css.btn} >
+
         <Input
           w="265px"
           h="40px"
           textColor="black"
           textAlign="center"
+
           _placeholder={{ opacity: 1, color: 'black' }}
           borderColor="black"
           color='black'
           placeholder='Your work Email' />
+
         <Button
           bgColor="#00AD95"
           color="white"
           w="210px"
           h="40px"
+
+
           _hover={{ bgColor: "#00AD95" }}>
+
           START FOR FREE!
         </Button>
       </div>
@@ -38,7 +51,19 @@ const Landingpage = () => {
         <div>
           <img
             src="https://trackingtime.co/wp-content/themes/trackingtime-v4/img/keywords/google-key.png"
-            alt="" />
+
+            alt=""
+          />
+          <a href="">
+            <h3>Sign in with Google</h3>
+          </a>
+        </div>
+        <img
+          src="https://trackingtime.co/wp-content/themes/trackingtime-v4/img/layout/header/ilus-header-2.svg"
+          alt=""
+        />
+
+           
           <a
             href="">
             <h3>Sign in with Google</h3>
@@ -251,10 +276,10 @@ const Landingpage = () => {
               </a>
             </div>
         </div>
+
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Landingpage
+export default Landingpage;
