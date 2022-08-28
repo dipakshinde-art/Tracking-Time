@@ -13,7 +13,11 @@ import BestPractice from "./Pages/blogs/BestPractice";
 import Resources from "./Pages/blogs/Resources";
 import Integrations from "./Pages/Integrations";
 import TimeTracker from "./Pages/TimeTracker";
+
+import Footer from "./Components/Footer";
+
 import Dashboard from "./Pages/Dashbord/Dashboard";
+
 
 function App() {
   return (
@@ -34,6 +38,7 @@ function App() {
         <Route path="/features/time-tracker" element={<TimeTracker />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
