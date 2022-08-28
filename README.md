@@ -84,7 +84,13 @@
    ⁍ name: Pradeep Yadav
 
     Contribution:
-     1.
+     1. Task Create 
+     2. Task Read
+     3. Task Update
+     4. Task Delete
+     5. State Managemant
+     6. All Task Features Backend
+     7. User able to see his Task only
 
    
 
