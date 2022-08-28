@@ -340,7 +340,7 @@ const Integrations = () => {
     return (
         <div className={css.main}>
             <Box className={css.top}>
-                <Box className={css.heading}>
+                <Box className={css.heading} >
                     <Box>
                         <Text
                             fontSize={{ base: '19px', sm: '17.43px', md: '19px', lg: '19px' }}
@@ -368,14 +368,14 @@ const Integrations = () => {
                     </Box>
                     <Box className={css.text4}>
                         <Text
-                            fontSize={{ base: '16px', sm: '14px', md: '16px', lg: '16px' }}
+                            fontSize={{ base: '14px', sm: '14px', md: '16px', lg: '16px' }}
                             fontWeight="600"
                             lineHeight={"30px"}
                             color="#7F8488"
                         >Improve your time tracking and increase your productivity with these Integrations.
                             See how much time you spend on each task or project! TrackingTime's integrations make it easy to keep track of your billable and non-billable tasks by integrating with more than 30 apps.</Text>
                         <Text
-                            fontSize={{ base: '16px', sm: '14px', md: '16px', lg: '16px' }}
+                            fontSize={{ base: '14px', sm: '14px', md: '16px', lg: '16px' }}
                             fontWeight="600"
                             lineHeight={"30px"}
                             color="#7F8488"
@@ -383,7 +383,7 @@ const Integrations = () => {
                     </Box>
                 </Box>
                 <Box className={css.apps}>
-                    <Grid templateColumns={{ base: "repeat(3,1fr)", sm: "repeat(2,1fr)", md: "repeat(2,1fr)", lg: "repeat(3,1fr)" }} gap="30px">
+                    <Grid templateColumns={{ base: "repeat(2,1fr)", sm: "repeat(2,1fr)", md: "repeat(2,1fr)", lg: "repeat(3,1fr)" }} gap="30px">
                         {
                             data.map((el) =>
                             (
@@ -400,7 +400,7 @@ const Integrations = () => {
                                     </Box>
                                     <Box>
                                         <Text
-                                            display={{ base: "block", sm: "none", md: "none", lg: "block" }}
+                                            display={{ base: "none", sm: "none", md: "none", lg: "block" }}
                                             fontSize={{ base: "14px", lg: '14px' }}
                                             color="#7F8488"
                                             fontWeight={{ base: 700, lg: 600 }}>
@@ -411,6 +411,19 @@ const Integrations = () => {
                             ))
                         }
                     </Grid>
+                </Box>
+                <Box display="flex"  justifyContent="flex-start" gap="6rem" >
+                    <Box display="flex" justifyContent="flex-start" ><Image w="530px"  src='https://trackingtime.co/wp-content/themes/trackingtime-v4/img/temp/home/download-section/phone.png'/></Box>
+                    <Box display="flex" alignItems='center' justifyContent="center"   >
+                        <Box w="397px"  display="flex" flexDirection="column" gap="2rem">
+                            <Box> <Text fontSize="40px" fontWeight="700">Track Everywhere</Text></Box>
+                            <Box> <Text fontSize="15px">Track your time everywhere you work with our mobile apps for iOS and Android.</Text></Box>
+                            <Box display="flex" color="grey" gap="20px">
+                                <Image w="60px" h="60px" borderRadius="5px" backgroundColor="black" src='https://trackingtime.co/wp-content/themes/trackingtime-v4/img/temp/home/download-section/playstore.png'/>
+                                <Image w="60px" h="60px" borderRadius="5px" backgroundColor="black" src='https://trackingtime.co/wp-content/themes/trackingtime-v4/img/temp/home/download-section/apstore.png'/>
+                            </Box>
+                        </Box>
+                    </Box>
                 </Box>
             </Box>
         </div>
