@@ -5,28 +5,24 @@ import axios from "axios";
 import NoteCard from "../../Calender/NoteCard.jsx";
 const CalenderGrid = ({ weekDays }) => {
   const [note, setNotes] = useState([]);
-  const current = new Date();
-  const CDate = `${current.getDate()}/${
-    current.getMonth() + 1
-  }/${current.getFullYear()}`;
 
- // console.log(note);
+  //  console.log(note);
   const getNotes = () => {
     axios.get("http://localhost:5000/note/list").then((response) => {
-      // console.log(response);
+     // console.log(response);
       setNotes(response.data);
     });
   };
   useEffect(() => {
     getNotes();
-  }, [CDate]);
+  }, []);
 
   return (
     <>
       <Grid
         templateColumns="repeat(1, 70px 1fr 1fr 1fr 1fr 1fr 70px)"
         gap={0.1}
-        border="1px solid #ccc"
+        border="0.5px solid #ccc"
       >
         <GridItem w="100%" h="100vh" border="1px solid #ccc" textAlign="center">
           <Box>{weekDays[0].weekDayName}</Box>
@@ -40,8 +36,7 @@ const CalenderGrid = ({ weekDays }) => {
             borderRadius="5px"
             m="10px"
           >
-            {" "}
-            <ManualClose today={weekDays[0].date}/>
+            <ManualClose today={weekDays[0].date} />
           </Box>
           <Box>
             {note.map((item) => {
@@ -72,7 +67,7 @@ const CalenderGrid = ({ weekDays }) => {
             opacity="1"
             border="1px solid #ccc"
           >
-            <ManualClose today={weekDays[1].date}/>
+            <ManualClose today={weekDays[1].date} />
           </Box>
           <Box>
             {note.map((item) => {
@@ -81,6 +76,7 @@ const CalenderGrid = ({ weekDays }) => {
                   key={item._id}
                   {...item}
                   weekDays={weekDays[1].date}
+                 
                 />
               );
             })}
@@ -104,7 +100,7 @@ const CalenderGrid = ({ weekDays }) => {
             opacity="1"
             border="1px solid #ccc"
           >
-            <ManualClose today={weekDays[2].date}/>
+            <ManualClose today={weekDays[2].date} />
           </Box>
           <Box>
             {note.map((item) => {
@@ -136,7 +132,7 @@ const CalenderGrid = ({ weekDays }) => {
             opacity="1"
             border="1px solid #ccc"
           >
-            <ManualClose today={weekDays[3].date}/>
+            <ManualClose today={weekDays[3].date} />
           </Box>
           <Box>
             {note.map((item) => {

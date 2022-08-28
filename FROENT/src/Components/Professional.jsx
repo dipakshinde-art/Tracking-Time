@@ -13,6 +13,7 @@ import {
   Input,
   Text,
   Textarea,
+  Tooltip,
   useDisclosure,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
@@ -80,6 +81,7 @@ const Professional = () => {
   const handleSubmit = () => {
     // console.log(task);
     dispatch(professionalAddTaskApi(task));
+    onClose();
   };
   const handleShow = () => {
     if (show == false && task.task_name) {
@@ -113,12 +115,15 @@ const Professional = () => {
       >
         Professional
         <Box onClick={() => onOpen()}>
+        <Tooltip hasArrow label='Add task' bg='gray.300' color='black'>
+
           <AddIcon />
+        </Tooltip>
         </Box>
       </Flex>
       {Professional_task.map((el, i) => {
         return (
-           <Textname update={update_professional_task} deleted={delete_Professional_task} data={el} key={i} index={i} />
+           <Textname update={update_professional_task} deleted={delete_Professional_task} data={el} key={i} index={el._id} />
         );
       })}
       <Drawer onClose={onClose} isOpen={isOpen} size={"md"}>

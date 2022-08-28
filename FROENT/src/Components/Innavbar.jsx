@@ -25,7 +25,7 @@ import {
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTaskApi, changeSection, filterTask } from "../taskreducer/action";
-import { ChevronDownIcon, AddIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, AddIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 const Innavbr = () => {
   const dispatch = useDispatch();
@@ -59,7 +59,7 @@ const Innavbr = () => {
 
     if (type == "checkbox") {
       if (status) {
-        console.log(task.task_completed);
+        // console.log(task.task_completed);
         Setstatus(false);
         Settask({
           ...task,
@@ -102,7 +102,7 @@ const Innavbr = () => {
     }
   };
   const handleChange = (chg) => {
-    console.log(chg);
+    // console.log(chg);
     dispatch(changeSection(chg));
   };
 
@@ -113,6 +113,8 @@ const Innavbr = () => {
     <Flex
       justify="space-between"
       border="1px solid grey"
+      borderLeft="none"
+      borderRight="none"
       opacity="3"
       pos={"sticky"}
       top="0"
@@ -130,19 +132,21 @@ const Innavbr = () => {
               <Text onClick={() => handleChange("Board")}>Board</Text>
             </Tab>
 
+           
             <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
-              <Text onClick={() => handleChange("Timeline")}>Timeline</Text>
-            </Tab>
-            <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
-              <Text onClick={() => handleChange("Report")}>Report</Text>
+              <Text onClick={() => handleChange("Note")}>Note</Text>
             </Tab>
             <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
               <Text onClick={() => handleChange("Notes")}>Notes</Text>
             </Tab>
+            {/* <Tab ml="8" p="2" cursor={"pointer"} > */}
+              {/* <Text onClick={() => handleChange("Notes")}>Notes</Text> */}
+              {/* <HamburgerIcon /> */}
+            {/* </Tab> */}
           </TabList>
         </Tabs>
       </Flex>
-      <Box>
+      <Box display={['none','none','block']}>
         <Menu>
           <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
             {val ? "Open tasks" : "All tasks"}

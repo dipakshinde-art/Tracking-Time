@@ -1,7 +1,7 @@
-import {initializeApp} from "firebase/app"
-import {getFirestore}  from "firebase/firestore"
-import {GoogleAuthProvider,getAuth} from "firebase/auth"
-import {getStorage} from "firebase/storage"
+import { initializeApp } from "firebase/app"
+import { getFirestore } from "firebase/firestore"
+import { GoogleAuthProvider, getAuth } from "firebase/auth"
+import { getStorage } from "firebase/storage"
 const firebaseConfig = {
   apiKey: "AIzaSyDZKR72NlT-THF-IchfD_zO7RlvIGptlv0",
   authDomain: "trakertime.firebaseapp.com",
@@ -12,10 +12,10 @@ const firebaseConfig = {
   measurementId: "G-RQL0MKMLFW"
 };
 
-const firebaseApp=initializeApp(firebaseConfig);
-const db=getFirestore(firebaseApp);
-const auth=getAuth();
-const provider=new GoogleAuthProvider()
-const storage=getStorage()
-export {auth,provider,storage}
+const firebaseApp = initializeApp(firebaseConfig);
+const db = getFirestore(firebaseApp);
+const auth = getAuth();
+const provider = new GoogleAuthProvider()
+const storage = getStorage()
+export { auth, provider, storage }
 export default db;
