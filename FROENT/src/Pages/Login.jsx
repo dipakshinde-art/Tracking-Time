@@ -42,7 +42,7 @@ export const Login = () => {
     axios
       .post("http://localhost:5000/auth/login", payload)
       .then((response) => {
-        console.log("toke", response.data.token);
+        // console.log("toke", response.data.token);
         localStorage.setItem("token", response.data.token);
         nav("/dashboard", { replace: true });
       })
