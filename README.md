@@ -47,24 +47,39 @@
 
 
 ## Team Members Contributions:
- ⁍ name:
+ ⁍ name: Gagan Chandan 
  
-    
+ Contribution:
+ 
+  1 .landing page 
+  2 .Navbar and footer 
+  3 .integrations page
+
+ # Linkdin Id : https://www.linkedin.com/in/gagan-chandan-p%F0%9F%95%B7-3b4590231/
+
 
 <br>
 
-  ⁍name:
-
-   
+   ⁍ name: Jitesh Sirohi
 
     Contribution:
+     1.WebSite's Blog
+        - Prodctivity
+        - Time Management
+        - Remote Work
+        
+     2. Features
+       - Time Track
 
+    
+     # Linkdin Id : linkedin.com/in/jitesh-sirohi
     
 <br>
 
-  ⁍ name:
+   ⁍ name: Pradeep Yadav
 
     Contribution:
+     1.
 
    
 
@@ -81,16 +96,11 @@
     
   <br>
 
-  ⁍ name 2:
+  ⁍ name 2: Chavvi Shrevastav
 
     Contribution:
 
     
     
-  <br>
-
-  ⁍ name:
-
-    Contribution:
-
+  
    
