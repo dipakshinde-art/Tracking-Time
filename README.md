@@ -13,7 +13,7 @@
 
 **Original website link**: https://trackingtime.co/
 
-**Link of our deployed project**:
+**Link of our deployed project**: https://timetrcak.netlify.app/
 
 ## Tech Stack and features
 - React
@@ -56,11 +56,11 @@
  
  Contribution:
  
-  1 .landing page 
-  2 .Navbar and footer 
-  3 .integrations page
+  1. landing page 
+  2. Navbar and footer 
+  3. integrations page
 
- # Linkdin Id : https://www.linkedin.com/in/gagan-chandan-p%F0%9F%95%B7-3b4590231/
+ # Linkdin Handle : https://www.linkedin.com/in/gagan-chandan-p%F0%9F%95%B7-3b4590231/
 
 
 <br>
@@ -98,7 +98,7 @@
     2. User Can see All CRUD operation
     3. Calender Grid So user can add Notes accroding to Date
     
-    
+    - LinkDin Handle : https://www.linkedin.com/in/dipak-shinde-2857461b6/
   <br>
 
   ⁍ name 2: <a href="https://www.linkedin.com/in/chhavisrivastva/">Chhavi Srivastva<a/>
