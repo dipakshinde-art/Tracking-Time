@@ -111,7 +111,7 @@ export const Signup = () => {
               placeholder="Password"
               onChange={handlePasswordChange}
               required
-              pattern="[a-zA-Z0-9]{8,}" 
+              // pattern="[a-zA-Z0-9]{8,}" 
             />
             <br />
 
