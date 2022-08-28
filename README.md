@@ -52,7 +52,7 @@
 
 
 ## Team Members Contributions:
- ⁍ name: Gagan Chandan 
+ ⁍ name: Gagan Chandan [LinkedIn](https://www.linkedin.com/in/gagan-chandan-p%F0%9F%95%B7-3b4590231/)
  
  Contribution:
  
@@ -60,12 +60,10 @@
   2. Navbar and footer 
   3. integrations page
 
- # Linkdin Handle : https://www.linkedin.com/in/gagan-chandan-p%F0%9F%95%B7-3b4590231/
-
 
 <br>
 
-   ⁍ name: Jitesh Sirohi
+   ⁍ name: Jitesh Sirohi  [LinkedIn](https://www.linkedin.com/in/jitesh-sirohi/)
 
     Contribution:
      1.WebSite's Blog
@@ -75,13 +73,10 @@
         
      2. Features
        - Time Track
-
-    
-     # Linkdin Id : linkedin.com/in/jitesh-sirohi
     
 <br>
 
-   ⁍ name: Pradeep Yadav
+   ⁍ name: Pradeep Yadav  [LinkedIn](https://www.linkedin.com/in/pradeep-yadav-11112222222244449999/)
 
     Contribution:
      1. Task Create 
@@ -91,14 +86,12 @@
      5. State Managemant
      6. All Task Features Backend
      7. User able to see his Task only
-     
-     #Linkedin ID: https://www.linkedin.com/in/pradeep-yadav-11112222222244449999/
 
    
 
 <br>
 
-  ⁍ Dipak Shantaram Shinde:
+  ⁍ Dipak Shantaram Shinde [LinkedIn](https://www.linkedin.com/in/dipak-shinde-2857461b6/)
 
     Contribution:
     
@@ -106,7 +99,6 @@
     2. User Can see All CRUD operation
     3. Calender Grid So user can add Notes accroding to Date
     
-    - LinkDin Handle : https://www.linkedin.com/in/dipak-shinde-2857461b6/
   <br>
 
   ⁍ name 2: <a href="https://www.linkedin.com/in/chhavisrivastva/">Chhavi Srivastva<a/>
