@@ -13,14 +13,15 @@ import BestPractice from "./Pages/blogs/BestPractice";
 import Resources from "./Pages/blogs/Resources";
 import Integrations from "./Pages/Integrations";
 import TimeTracker from "./Pages/TimeTracker";
+import Dashboard from "./Pages/Dashbord/Dashboard";
 
 function App() {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Landingpage />} />
-        <Route path="/integration" element={<Integrations/>} />
+        <Route path="/integration" element={<Integrations />} />
         <Route path="/project" element={<Projects />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
@@ -31,6 +32,7 @@ function App() {
         <Route path="/best-practice" element={<BestPractice />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/features/time-tracker" element={<TimeTracker />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );

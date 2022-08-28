@@ -31,68 +31,76 @@ let upload = multer({ storage: storage })
 
 note.post("/create", validator, async (req, res) => {
 
-    const { Title, user_id, Note, img, TitleGroup } = req.body;
+    const { Title, user_id, Note, img, TitleGroup, time, endTime, DATE } = req.body;
     const new_note = new UserModel({
         Title,
+        createdate: DATE,
         user_id,
         Note,
-        TitleGroup
+        TitleGroup,
+        img,
+        time,
+        endTime,
     })
     await new_note.save()
     res.status(201).send({ "message": "note created", new_note })
 
 });
+
 note.patch("/edit/:id", async (req, res) => {
     let Noteid = req.params.id;
-    const { user_id } = req.body
     let { Note, Title, } = req.body
-   
 
-    // const note = await UserModel.findOne({ _id: Noteid })
 
-    // if (note.user_id === user_id) {
-    //     const Documents = await UserModel.updateOne(
-    //         { _id: Noteid },
-    //         { $set: { Title, Note } }
-    //     );
+    const note = await UserModel.findOne({ _id: Noteid })
 
-    //     return res.status(201).send({ "message": "successfully updated", Documents })
-    // } else {
-    //     return res.status(421).send("you are not authorised to do it")
-    // }
+
+    if (note) {
+        const Documents = await UserModel.updateOne(
+            { _id: Noteid },
+            { $set: { Title, Note } }
+        );
+
+        return res.status(201).send({ "message": "successfully updated", Documents })
+    } else {
+        return res.status(421).send("you are not authorised to do it")
+    }
 
 
 });
 
 note.delete("/delete/:id", async (req, res) => {
     let Noteid = req.params.id;
-    const { user_id } = req.body
 
+    // console.log("Noteid",Noteid)
+    const note = await UserModel.findOne({ _id: Noteid })
 
-    // const note = await UserModel.findOne({ _id: Noteid })
-    // if (note.user_id === user_id) {
-    //     await UserModel.deleteOne({ _id: Noteid });
-    //     return res.status(201).send({ "message": "successfully deleted" })
-    // } else {
-    //     return res.status(422).send("you are not authorised to do it")
-    // }
+    await UserModel.deleteOne({ _id: Noteid });
+    return res.status(201).send({ "message": "successfully deleted" })
+
 
 });
 
+note.get("/info/:id", async (req, res) => {
+    let Noteid = req.params.id;
+      console.log(Noteid)
+    const note = await UserModel.findOne({ _id: Noteid })
+    //  console.log(note)
+    if (note) {
+        return res.status(201).send({ "message": "Find Information", note })
+    } else {
+        return res.status(421).send("you are not authorised to do it")
+    }
+
+})
 
 note.get("/list", async (req, res) => {
-    const { user_id } = req.body
 
-    console.log(req.query)
-    const Label = req.query.label;
-
-    if (req.query.label) {
-        const notes = await UserModel.find({ Label })
+    try {
+        const notes = await UserModel.find()
         res.status(201).send(notes)
-    } else {
-
-        const notes = await UserModel.find({})
-        res.status(201).send(notes)
+    } catch (error) {
+        res.status(500).send(error)
     }
 
 });
