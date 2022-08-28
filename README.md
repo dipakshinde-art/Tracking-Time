@@ -101,7 +101,8 @@
     
   <br>
 
-  ⁍ name 2: Chavvi Shrevastav
+  ⁍ name 2: <a href="https://www.linkedin.com/in/chhavisrivastva/">Chhavi Srivastva<a/>
+
 
     Contribution:
       1.Signup and login page
