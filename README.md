@@ -19,11 +19,16 @@
 - React
 - Redux
 - Redux Thunks
+- Mongoose
+- Express
+- Node JS
 - API (Jwt-bcrypt login and registration)
-- Json-Server
+- Heroku (for backend deployment)
 - Chakra UI
 - Protected Routes(only accesible after login)
 - Responsiveness
+- CRUD Opearations on Dashboard page
+- Blogs To upskil
 
 
 ## Glimpse and screenshots of our cloned website:
