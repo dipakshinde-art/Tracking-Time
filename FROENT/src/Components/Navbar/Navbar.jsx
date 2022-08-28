@@ -23,7 +23,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Projects",
-    href: "#",
+    href: "/project/List",
     col: "#282828",
   },
   {
