@@ -104,6 +104,10 @@
   ⁍ name 2: Chavvi Shrevastav
 
     Contribution:
+      1.Signup and login page
+      2.Authentication
+      3.Goggle signup
+    
 
     
     
