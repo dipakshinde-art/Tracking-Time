@@ -13,12 +13,13 @@ import {
   Input,
   Text,
   Textarea,
+  Tooltip,
   useDisclosure,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { delete_Others_task, othersAddTaskApi, othersTaskApi, update_others_task } from "../taskreducer/action";
-import Drawerele from "./Drawerele";
+
 import Textname from "./Textname";
 
 const Others = () => {
@@ -111,11 +112,14 @@ const Others = () => {
       >
         Others
         <Box onClick={() => onOpen()}>
+        <Tooltip hasArrow label='Add task' bg='gray.300' color='black'>
+
           <AddIcon />
+        </Tooltip>
         </Box>
       </Flex>
       {Others_task.map((el, i) => {
-        return <Textname data={el} key={i} index={i} update={update_others_task} deleted={delete_Others_task} />
+        return <Textname data={el} key={i} index={el._id} update={update_others_task} deleted={delete_Others_task} />
       })}
 
       <Drawer onClose={onClose} isOpen={isOpen} size={"md"}>

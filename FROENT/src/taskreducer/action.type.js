@@ -67,3 +67,10 @@ export const DELETE_PROFESSIONAL_TASK_ERROR = 'delete_professional_task/error'
 export const DELETE_PERSONAL_TASK_LOADING = 'delete_personal_task/loading'
 export const DELETE_PERSONAL_TASK_SUCCESS = 'delete_personal_task/success'
 export const DELETE_PERSONAL_TASK_ERROR = 'delete_personal_task/error'
+
+
+export const NOTES_CREATED = 'notes/created'
+export const NOTES_UPDATED = 'notes/updated'
+export const NOTES_DELETED = 'notes/deleted'
+export const NOTES_READ = 'notes/read'
+
