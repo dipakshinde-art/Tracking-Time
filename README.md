@@ -11,9 +11,9 @@
 
 ## Project Details:
 
-**Original website link**: https://trackingtime.co/
+**Original website link**: [Original Website](https://trackingtime.co/)
 
-**Link of our deployed project**: https://timetrcak.netlify.app/
+**Link of our deployed project**: [Our Website](https://timetrcak.netlify.app/)
 
 ## Tech Stack and features
 - React
