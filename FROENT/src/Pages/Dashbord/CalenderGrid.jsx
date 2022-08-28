@@ -9,7 +9,7 @@ const CalenderGrid = ({ weekDays }) => {
   //  console.log(note);
   const getNotes = () => {
     axios.get("http://localhost:5000/note/list").then((response) => {
-     // console.log(response);
+      // console.log(response);
       setNotes(response.data);
     });
   };
@@ -36,7 +36,7 @@ const CalenderGrid = ({ weekDays }) => {
             borderRadius="5px"
             m="10px"
           >
-            <ManualClose today={weekDays[0].date} />
+            <ManualClose today={weekDays[0].date}  getNotes={getNotes} />
           </Box>
           <Box>
             {note.map((item) => {
@@ -45,6 +45,7 @@ const CalenderGrid = ({ weekDays }) => {
                   key={item._id}
                   {...item}
                   weekDays={weekDays[0].date}
+                  getNotes={getNotes}
                 />
               );
             })}
@@ -67,7 +68,7 @@ const CalenderGrid = ({ weekDays }) => {
             opacity="1"
             border="1px solid #ccc"
           >
-            <ManualClose today={weekDays[1].date} />
+            <ManualClose today={weekDays[1].date} getNotes={getNotes}/>
           </Box>
           <Box>
             {note.map((item) => {
@@ -76,7 +77,7 @@ const CalenderGrid = ({ weekDays }) => {
                   key={item._id}
                   {...item}
                   weekDays={weekDays[1].date}
-                 
+                  getNotes={getNotes}
                 />
               );
             })}
@@ -100,7 +101,7 @@ const CalenderGrid = ({ weekDays }) => {
             opacity="1"
             border="1px solid #ccc"
           >
-            <ManualClose today={weekDays[2].date} />
+            <ManualClose today={weekDays[2].date} getNotes={getNotes} />
           </Box>
           <Box>
             {note.map((item) => {
@@ -109,6 +110,7 @@ const CalenderGrid = ({ weekDays }) => {
                   key={item._id}
                   {...item}
                   weekDays={weekDays[2].date}
+                  getNotes={getNotes}
                 />
               );
             })}
@@ -132,7 +134,7 @@ const CalenderGrid = ({ weekDays }) => {
             opacity="1"
             border="1px solid #ccc"
           >
-            <ManualClose today={weekDays[3].date} />
+            <ManualClose today={weekDays[3].date} getNotes={getNotes} />
           </Box>
           <Box>
             {note.map((item) => {
@@ -141,6 +143,7 @@ const CalenderGrid = ({ weekDays }) => {
                   key={item._id}
                   {...item}
                   weekDays={weekDays[3].date}
+                  getNotes={getNotes}
                 />
               );
             })}
@@ -164,7 +167,7 @@ const CalenderGrid = ({ weekDays }) => {
             opacity="1"
             border="1px solid #ccc"
           >
-            <ManualClose today={weekDays[4].date} />
+            <ManualClose today={weekDays[4].date} getNotes={getNotes} />
           </Box>
           <Box>
             {note.map((item) => {
@@ -173,6 +176,7 @@ const CalenderGrid = ({ weekDays }) => {
                   key={item._id}
                   {...item}
                   weekDays={weekDays[4].date}
+                  getNotes={getNotes}
                 />
               );
             })}
@@ -196,7 +200,7 @@ const CalenderGrid = ({ weekDays }) => {
             opacity="1"
             border="1px solid #ccc"
           >
-            <ManualClose today={weekDays[5].date} />
+            <ManualClose today={weekDays[5].date} getNotes={getNotes} />
           </Box>
           <Box>
             {note.map((item) => {
@@ -205,6 +209,7 @@ const CalenderGrid = ({ weekDays }) => {
                   key={item._id}
                   {...item}
                   weekDays={weekDays[5].date}
+                  getNotes={getNotes}
                 />
               );
             })}
@@ -223,7 +228,7 @@ const CalenderGrid = ({ weekDays }) => {
             m="10px"
           >
             {" "}
-            <ManualClose today={weekDays[6].date} />
+            <ManualClose today={weekDays[6].date} getNotes={getNotes} />
           </Box>
           <Box>
             {note.map((item) => {
@@ -232,6 +237,7 @@ const CalenderGrid = ({ weekDays }) => {
                   key={item._id}
                   {...item}
                   weekDays={weekDays[6].date}
+                  getNotes={getNotes}
                 />
               );
             })}

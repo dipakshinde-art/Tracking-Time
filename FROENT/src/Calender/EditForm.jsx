@@ -18,18 +18,20 @@ import {
   PopoverHeader,
   PopoverBody,
   PopoverFooter,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { Link as RLink } from "react-router-dom";
+import { Link as RLink, useNavigate } from "react-router-dom";
 import { MdOutlineNotes } from "react-icons/md";
 import styles from "./Col.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
-export default function EditForm({ id }) {
+export default function EditForm({ id, getNotes }) {
+  const { onOpen, onClose, isOpen } = useDisclosure();
+ 
   const [startTime, setStartTime] = useState("");
   const [endTime, setendTime] = useState("");
-  const [date, setCreateDate] = useState("");
-
+  const navigate = useNavigate();
   const [Title, setTitle] = useState("");
   const [Note, setNote] = useState("");
 
@@ -41,13 +43,20 @@ export default function EditForm({ id }) {
     axios
       .patch(`http://localhost:5000/note/edit/${id}`, payload)
       .then((responce) => {
-        //  console.log(responce);
-        window.location.reload(false);
+        // console.log("update responce", responce);
         alert("NOTE Updated");
+        if (responce.status === 201) {
+          navigate("/dashboard", { replace: true });
+          getNotes();
+          
+        }
       });
+    getNotes();
+    onClose();
   };
+
   const handleEdit = () => {
-    // console.log("editform id", id);
+    //console.log("editform id", id);
     axios.get(`http://localhost:5000/note/info/${id}`).then((responce) => {
       //console.log(responce.data.note);
       if (responce.data.note) {
@@ -59,22 +68,22 @@ export default function EditForm({ id }) {
   };
 
   const handleDelete = () => {
-   // console.log("deleteform id", id);
-    axios
-      .delete(`http://localhost:5000/note/delete/${id}`)
-      .then((response) => {
-        alert("Deleted");
-        // console.log(response.data);
-        window.location.reload(false);
-        // navigate("/note/list", { replace: true });
-      })
-      .catch((err) => alert("Not ABle to Delete"));
+    // console.log("deleteform id", id);
+    axios.delete(`http://localhost:5000/note/delete/${id}`).then((response) => {
+      alert("Deleted");
+     // console.log("deleteform id", response);
+      if (response.status == 202) {
+        navigate("/dashboard", { replace: true });
+        getNotes();
+      }
+    });
+    getNotes();
   };
   return (
-    <Box mt="10px" onClick={() => handleEdit()}>
+    <Box mt="10px">
       <PopoverArrow />
-      <PopoverCloseButton />
-      <PopoverHeader>
+      <PopoverCloseButton onClick={onClose}/>
+      <PopoverHeader onClick={() => handleEdit()}>
         <Avatar src="https://bit.ly/broken-link" size="sm" mr="3" />
         username
       </PopoverHeader>

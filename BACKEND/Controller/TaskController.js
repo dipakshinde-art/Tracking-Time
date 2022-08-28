@@ -17,7 +17,6 @@ const validator = (req, res, next) => {
     }
     next();
 };
-
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'uploads')
@@ -51,39 +50,26 @@ note.patch("/edit/:id", async (req, res) => {
     let Noteid = req.params.id;
     let { Note, Title, } = req.body
 
+    await UserModel.updateOne({ _id: Noteid },{ $set: { Title, Note } });
 
-    const note = await UserModel.findOne({ _id: Noteid })
-
-
-    if (note) {
-        const Documents = await UserModel.updateOne(
-            { _id: Noteid },
-            { $set: { Title, Note } }
-        );
-
-        return res.status(201).send({ "message": "successfully updated", Documents })
-    } else {
-        return res.status(421).send("you are not authorised to do it")
-    }
+    return res.status(201).send({ "message": "successfully updated"})
 
 
 });
 
 note.delete("/delete/:id", async (req, res) => {
     let Noteid = req.params.id;
-
     // console.log("Noteid",Noteid)
     const note = await UserModel.findOne({ _id: Noteid })
 
     await UserModel.deleteOne({ _id: Noteid });
-    return res.status(201).send({ "message": "successfully deleted" })
-
+    return res.status(202).send({ "message": "successfully deleted" })
 
 });
 
 note.get("/info/:id", async (req, res) => {
     let Noteid = req.params.id;
-      console.log(Noteid)
+    // console.log(Noteid)
     const note = await UserModel.findOne({ _id: Noteid })
     //  console.log(note)
     if (note) {

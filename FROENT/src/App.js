@@ -22,7 +22,7 @@ import Dashboard from "./Pages/Dashbord/Dashboard";
 function App() {
   return (
     <div>
-      {/* <Navbar /> */}
+      
       <Routes>
         <Route path="/" element={<Landingpage />} />
         <Route path="/integration" element={<Integrations />} />
@@ -38,7 +38,7 @@ function App() {
         <Route path="/features/time-tracker" element={<TimeTracker />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-      <Footer/>
+     
     </div>
   );
 }

@@ -43,6 +43,8 @@ export const Signup = () => {
       email,
       password,
     };
+
+    console.log(payload)
     axios
       .post("http://localhost:5000/auth/signup", payload)
       .then((response) => {

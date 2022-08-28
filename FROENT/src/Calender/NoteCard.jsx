@@ -11,7 +11,7 @@ import {
 import React from "react";
 
 import EditForm from "./EditForm.jsx";
-const NoteCard = ({ Note, Title, createdate, weekDays, _id }) => {
+const NoteCard = ({ Note, Title, createdate, weekDays, _id ,getNotes }) => {
   let last = createdate[8] + createdate[9];
 
   const handleEdit = (e) => {
@@ -78,7 +78,7 @@ const NoteCard = ({ Note, Title, createdate, weekDays, _id }) => {
         </PopoverTrigger>
         <Portal>
           <PopoverContent mt="12em" w="30em">
-            <EditForm id={_id} onClick={() => handleEdit(_id)} />
+            <EditForm id={_id} onClick={() => handleEdit(_id)} getNotes={getNotes} />
           </PopoverContent>
         </Portal>
       </Popover>

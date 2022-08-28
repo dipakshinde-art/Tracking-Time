@@ -28,7 +28,9 @@ import styles from "./dash.module.css";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-export default function ManualClose({ today }) {
+
+
+export default function ManualClose({ today ,getNotes }) {
   const current = new Date();
   const CDate = today / `${current.getMonth() + 1}/${current.getFullYear()}`;
   const navigate = useNavigate();
@@ -52,17 +54,17 @@ export default function ManualClose({ today }) {
       endTime,
       DATE: startTime,
     };
-    //  console.log(payload);
+  
     axios
-      .post(`http://localhost:5000/note/create`, payload, {
-        // headers: {
-        //   "Content-Type": "application/json",
-        //   Authorization: `${localStorage.getItem("token")}`,
-        // },
-      })
+      .post(`http://localhost:5000/note/create`, payload)
       .then((response) => {
         console.log(response.data);
-        window.location.reload(false);
+        // window.location.reload(false);
+        if(response){
+          onClose()
+          getNotes();
+        }
+        
         alert("NOTE created");
       })
       .catch((err) => alert("Some Filed is mIssing "));
