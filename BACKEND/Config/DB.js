@@ -7,4 +7,4 @@ const { UserModel } = require("../Model/NoteModel")
 module.exports = { connection,UserModel };
 
 
-// CONNECTION=mongodb+srv://dipak_dev:dipak1996@cluster0.yld4l4k.mongodb.net/unit6?retryWrites=true&w=majority
+// 
