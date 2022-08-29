@@ -1,5 +1,5 @@
 # Tracking Time - Clone
-
+Tracking time is an intuitive Time Tracking Software. It is make easy to keep an track on daily, monthly and weekly task and provide feature to create a personal notes also many more etc.
 
 ## Team members:
 1. Gangan Chandan
