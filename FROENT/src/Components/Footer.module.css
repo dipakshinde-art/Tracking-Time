@@ -1,102 +1,98 @@
 .box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #F6F8F9;
-    gap: 10rem;
-    padding-top:4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f6f8f9;
+  gap: 10rem;
+  padding-top: 4rem;
 }
 
 .resbox {
-    display: none;
+  display: none;
 }
 
 .box1 {
-    display: flex;
-    margin-right: 40rem;
-    width: 40%;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 1.5rem;
+  display: flex;
+  margin-right: 40rem;
+  width: 40%;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.5rem;
 }
 
 .btn {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .google {
-    display: flex;
-    gap: 20px;
-    font-size: 13px;
-    font-weight: 700;
-    text-decoration: underline;
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
-.google>a:hover {
-    color: #00AD98;
+.google > a:hover {
+  color: #00ad98;
 }
 
 .box2 {
-    justify-content: center;
-    margin: auto;
-    margin-bottom: 10rem;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 10rem;
 }
 
 .grid h1 {
-    font-size: 12px;
-    font-weight: 700;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .grid h3 {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 .grid {
-    line-height: 30px;
-    cursor: pointer;
+  line-height: 30px;
+  cursor: pointer;
 }
 
 .grid h3:hover {
-    color: #00AD98
+  color: #00ad98;
 }
 
 @media (max-width: 767px) {
-    .box {
-        display: none;
-    }
+  .box {
+    display: none;
+  }
 
-    .resbox {
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0 0 0 24rem;
-    }
+  .resbox {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 24rem;
+  }
 
-
-    .resbox1 {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-    .resbox1>img
-    {
-        margin: auto;
-    }
-    .resbtn
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    .resbtn Input{
-        width:100%;
-    }
-    .resbtn Button{
-        width:100%
-    }
-
+  .resbox1 {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .resbox1 > img {
+    margin: auto;
+  }
+  .resbtn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .resbtn Input {
+    width: 100%;
+  }
+  .resbtn Button {
+    width: 100%;
+  }
 }
