@@ -40,7 +40,7 @@ export const Login = () => {
     };
 
     axios
-      .post("http://localhost:5000/auth/login", payload)
+      .post("https://trackime.herokuapp.com/auth/login", payload)
       .then((response) => {
         // console.log("toke", response.data.token);
         localStorage.setItem("token", response.data.token);

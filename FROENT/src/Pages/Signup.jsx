@@ -46,7 +46,7 @@ export const Signup = () => {
 
     console.log(payload)
     axios
-      .post("http://localhost:5000/auth/signup", payload)
+      .post("https://trackime.herokuapp.com/auth/signup", payload)
       .then((response) => {
         console.log(response);
         alert("Signup successfully");

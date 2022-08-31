@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt')
 authRouter.post("/signup", async (req, res) => {
     let { email, password } = req.body;
 
-    console.log(req.body)
+  //  console.log(req.body)
     await bcrypt.hash(password, 8, function (err, hash) {
         if (err) {
             return res.send("Invalide password");
