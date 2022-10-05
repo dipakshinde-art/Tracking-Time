@@ -5,12 +5,15 @@ const notesController = Router();
 notesController.post("/create", async (req, res) => {
   const { note } = req.body;
   const userId = req.headers.authorization.split(" ")[1];
+
  
+
   const task = new NotesModel({
     note,
     userId,
   });
- 
+
+
   await task.save();
   res.send(task);
 });
@@ -18,8 +21,12 @@ notesController.post("/create", async (req, res) => {
 notesController.get("/", async (req, res) => {
   const userId = req.headers.authorization.split(" ")[1];
   const task = await NotesModel.find({ userId });
+
+    res.send(task);
+
  
   res.send(task);
+
 });
 
 notesController.patch("/:noteId/update", async (req, res) => {
