@@ -41,7 +41,7 @@ export default function EditForm({ id, getNotes }) {
       Note,
     };
     axios
-      .patch(`https://trackime.herokuapp.com/note/edit/${id}`, payload)
+      .patch(`https://tracktime-backe.onrender.com/note/edit/${id}`, payload)
       .then((responce) => {
         // console.log("update responce", responce);
         alert("NOTE Updated");
@@ -57,7 +57,7 @@ export default function EditForm({ id, getNotes }) {
 
   const handleEdit = () => {
     //console.log("editform id", id);
-    axios.get(`https://trackime.herokuapp.com/note/info/${id}`).then((responce) => {
+    axios.get(`https://tracktime-backe.onrender.com/note/info/${id}`).then((responce) => {
       //console.log(responce.data.note);
       if (responce.data.note) {
         setTitle(responce.data.note.Title);
@@ -69,7 +69,7 @@ export default function EditForm({ id, getNotes }) {
 
   const handleDelete = () => {
     // console.log("deleteform id", id);
-    axios.delete(`https://trackime.herokuapp.com/note/delete/${id}`).then((response) => {
+    axios.delete(`https://tracktime-backe.onrender.com/note/delete/${id}`).then((response) => {
       alert("Deleted");
      // console.log("deleteform id", response);
       if (response.status == 202) {

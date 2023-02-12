@@ -103,6 +103,7 @@ const Personal = () => {
         justify="space-between"
         m="2"
         p="2"
+        w="20rem"
         cursor="pointer"
         _hover={{
           bg: "whitesmoke",

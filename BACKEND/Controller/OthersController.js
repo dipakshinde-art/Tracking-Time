@@ -41,7 +41,7 @@ othersController.delete("/:taskId/delete", async (req, res) => {
   const { taskId } = req.params;
   const userId = req.headers.authorization.split(" ")[1];
   await OthersModel.findOneAndDelete({ _id: taskId, userId });
-  return res.send({ taskId }); 
+  return res.send({ taskId });
 });
 
 module.exports = othersController;

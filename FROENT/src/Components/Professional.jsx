@@ -109,6 +109,7 @@ const Professional = () => {
         p="2"
         justify="space-between"
         cursor="pointer"
+        w="20rem"
         _hover={{
           bg: "whitesmoke",
         }}

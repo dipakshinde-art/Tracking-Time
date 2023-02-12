@@ -38,7 +38,8 @@ export const Signup = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const payload = {
       email,
       password,
@@ -46,7 +47,7 @@ export const Signup = () => {
 
     console.log(payload)
     axios
-      .post("https://trackime.herokuapp.com/auth/signup", payload)
+      .post("https://tracktime-backe.onrender.com/auth/signup", payload)
       .then((response) => {
         console.log(response);
         alert("Signup successfully");
@@ -94,7 +95,7 @@ export const Signup = () => {
             </Button>
           </div>
           <span className={styles.signuporlogin}>Sign up with your email</span>
-          <form className={styles.rightlogin}>
+          <form className={styles.rightlogin} onClick={handleSubmit}>
             <Input
               pattern="[A-Za-z0-9._+-]+@[A-Za-z0-9 -]+\.[a-z]{2,}"
               w="16rem"
@@ -116,7 +117,7 @@ export const Signup = () => {
             />
             <br />
 
-            <button className={styles.loginbtn} onClick={handleSubmit}>
+            <button className={styles.loginbtn} >
               Signup
             </button>
             <br />

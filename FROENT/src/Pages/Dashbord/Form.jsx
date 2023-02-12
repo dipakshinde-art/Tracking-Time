@@ -56,7 +56,7 @@ export default function ManualClose({ today ,getNotes }) {
     };
   
     axios
-      .post(`https://trackime.herokuapp.com/note/create`, payload)
+      .post(`https://tracktime-backe.onrender.com/note/create`, payload)
       .then((response) => {
         console.log(response.data);
         // window.location.reload(false);

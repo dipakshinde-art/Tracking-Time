@@ -149,7 +149,7 @@ const Innavbr = () => {
       <Box display={['none','none','block']}>
         <Menu>
           <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-            {val ? "Open tasks" : "All tasks"}
+            {val ? "Completed tasks" : "All tasks"}
           </MenuButton>
 
           <MenuList>
@@ -158,7 +158,7 @@ const Innavbr = () => {
                 All tasks
               </MenuItemOption>
               <MenuItemOption value="open" onClick={handleVal}>
-                Open tasks
+                Completed tasks
               </MenuItemOption>
             </MenuOptionGroup>
           </MenuList>

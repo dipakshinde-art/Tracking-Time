@@ -17,28 +17,47 @@ import TimeTracker from "./Pages/TimeTracker";
 import Footer from "./Components/Footer";
 
 import Dashboard from "./Pages/Dashbord/Dashboard";
-
+import { RequiredAuth } from "./Components/hoc/RequiredAuth";
 
 function App() {
   return (
     <div>
-      
       <Routes>
         <Route path="/" element={<Landingpage />} />
         <Route path="/integration" element={<Integrations />} />
-        <Route path="/project" element={<Projects />} />
+        <Route
+          path="/project"
+          element={
+            <RequiredAuth>
+              <Projects />
+            </RequiredAuth>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/project/List" element={<List />} />
+        <Route
+          path="/project/List"
+          element={
+            <RequiredAuth>
+              <List />
+            </RequiredAuth>
+          }
+        />
         <Route path="/blog" element={<Blog />} />
         <Route path="/productivity" element={<Productivity />} />
         <Route path="/remote-work" element={<RemoteWork />} />
         <Route path="/best-practice" element={<BestPractice />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/features/time-tracker" element={<TimeTracker />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/dashboard"
+          element={
+            <RequiredAuth>
+              <Dashboard />
+            </RequiredAuth>
+          }
+        />
       </Routes>
-     
     </div>
   );
 }

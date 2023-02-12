@@ -40,10 +40,11 @@ export const Login = () => {
     };
 
     axios
-      .post("https://trackime.herokuapp.com/auth/login", payload)
+      .post("https://tracktime-backe.onrender.com/auth/login", payload)
       .then((response) => {
         // console.log("toke", response.data.token);
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("isAuth", true);
         nav("/dashboard", { replace: true });
       })
       .catch((err) => alert("Plese Try Again. Some Field Missing"));

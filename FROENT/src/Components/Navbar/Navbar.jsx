@@ -14,6 +14,8 @@ import {
   Menu,
 } from "@chakra-ui/react";
 import Desktopnav from "./Desktopnav";
+import { saveData } from "../hoc/LocalStorage";
+import { useNavigate } from "react-router-dom";
 
 const NAV_ITEMS = [
   {
@@ -98,6 +100,15 @@ const NAV_ITEMS = [
 ];
 
 export default function WithSubnavigation() {
+
+  
+const navigate = useNavigate()
+const handleLogout = () =>{
+  saveData('isAuth', false)
+  saveData('token','none')
+  navigate('/login')
+}
+
   return (
     <Box>
       <Flex
@@ -244,7 +255,7 @@ export default function WithSubnavigation() {
                 <MenuItem>Link 1</MenuItem>
                 <MenuItem>Link 2</MenuItem>
                 <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
+                <MenuItem onClick={handleLogout}>Logout</MenuItem>
               </MenuList>
             </Menu>
           </Flex>

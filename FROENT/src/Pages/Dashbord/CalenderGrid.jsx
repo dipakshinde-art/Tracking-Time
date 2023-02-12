@@ -8,7 +8,7 @@ const CalenderGrid = ({ weekDays }) => {
 
   //  console.log(note);
   const getNotes = () => {
-    axios.get("https://trackime.herokuapp.com/note/list").then((response) => {
+    axios.get("https://tracktime-backe.onrender.com/note/list").then((response) => {
       // console.log(response);
       setNotes(response.data);
     });

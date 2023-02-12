@@ -104,6 +104,7 @@ const Others = () => {
       <Flex
         m="2"
         p="2"
+        w="20rem"
         cursor="pointer"
         justify="space-between"
         _hover={{
